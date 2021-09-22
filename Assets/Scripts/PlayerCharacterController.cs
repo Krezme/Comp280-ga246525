@@ -7,7 +7,7 @@ public class PlayerCharacterController : MonoBehaviour
     public float speed;
     public float mouseSensativity = 100f;
 
-    public Rigidbody rigidBody;
+    //public Rigidbody rigidBody;
     public Transform playerTransform;
     public GameObject playerCamera;
 
