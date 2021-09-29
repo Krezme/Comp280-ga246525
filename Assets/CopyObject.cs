@@ -16,18 +16,16 @@ public class CopyObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var origin = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray origin = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Input.GetButtonDown("Fire2") && Physics.Raycast(origin, out hit, maxDistance, copyableObject.GetHashCode())) {
-            
-            CopyData.instance.copiedGameObjectVertices = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.vertices;
-            CopyData.instance.copiedGameObjectTris = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.triangles;
-            CopyData.instance.itemCopied = true;
-            Debug.Log("Game Object: " + hit.transform.gameObject.name + " is coppied.");
-            Debug.Log("vertices: " + CopyData.instance.copiedGameObjectVertices);
-            Debug.Log("Tris: " + CopyData.instance.copiedGameObjectTris);
-
+        if (Physics.Raycast(origin, out hit, maxDistance, copyableObject.GetHashCode())) {
+            if (Input.GetButtonDown("Fire2")) {
+                CopyData.instance.copiedGameObjectVertices = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.vertices;
+                CopyData.instance.copiedGameObjectTris = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.triangles;
+                CopyData.instance.itemCopied = true;
+                Debug.Log("Game Object: " + hit.transform.gameObject.name + " is coppied.");
+            }
         }
     }
 }
