@@ -73,6 +73,7 @@ public class CubeSpinner : CubeSpinnerBehavior
         transform.position += new Vector3(Input.GetAxis("Horizontal"), 0,
         Input.GetAxis("Vertical")).normalized * speed * Time.deltaTime;
         displayNameText.text = displayName.ToString();
+        
         // if we're the owner, we need to update the network object to tell everyone else
         networkObject.position = transform.position;
         networkObject.rotation = transform.rotation;

@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace BeardedManStudios.Forge.Networking.Generated
 {
-	[GeneratedInterpol("{\"inter\":[0.15,0.15,0]")]
-	public partial class CubeSpinnerNetworkObject : NetworkObject
+	[GeneratedInterpol("{\"inter\":[0.15,0.15,0.15]")]
+	public partial class GameBallNetworkObject : NetworkObject
 	{
-		public const int IDENTITY = 3;
+		public const int IDENTITY = 8;
 
 		private byte[] _dirtyFields = new byte[1];
 
@@ -47,6 +47,37 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			if (fieldAltered != null) fieldAltered("position", _position, timestep);
 		}
 		[ForgeGeneratedField]
+		private Vector3 _scale;
+		public event FieldEvent<Vector3> scaleChanged;
+		public InterpolateVector3 scaleInterpolation = new InterpolateVector3() { LerpT = 0.15f, Enabled = true };
+		public Vector3 scale
+		{
+			get { return _scale; }
+			set
+			{
+				// Don't do anything if the value is the same
+				if (_scale == value)
+					return;
+
+				// Mark the field as dirty for the network to transmit
+				_dirtyFields[0] |= 0x2;
+				_scale = value;
+				hasDirtyFields = true;
+			}
+		}
+
+		public void SetscaleDirty()
+		{
+			_dirtyFields[0] |= 0x2;
+			hasDirtyFields = true;
+		}
+
+		private void RunChange_scale(ulong timestep)
+		{
+			if (scaleChanged != null) scaleChanged(_scale, timestep);
+			if (fieldAltered != null) fieldAltered("scale", _scale, timestep);
+		}
+		[ForgeGeneratedField]
 		private Quaternion _rotation;
 		public event FieldEvent<Quaternion> rotationChanged;
 		public InterpolateQuaternion rotationInterpolation = new InterpolateQuaternion() { LerpT = 0.15f, Enabled = true };
@@ -60,7 +91,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 					return;
 
 				// Mark the field as dirty for the network to transmit
-				_dirtyFields[0] |= 0x2;
+				_dirtyFields[0] |= 0x4;
 				_rotation = value;
 				hasDirtyFields = true;
 			}
@@ -68,7 +99,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 
 		public void SetrotationDirty()
 		{
-			_dirtyFields[0] |= 0x2;
+			_dirtyFields[0] |= 0x4;
 			hasDirtyFields = true;
 		}
 
@@ -76,37 +107,6 @@ namespace BeardedManStudios.Forge.Networking.Generated
 		{
 			if (rotationChanged != null) rotationChanged(_rotation, timestep);
 			if (fieldAltered != null) fieldAltered("rotation", _rotation, timestep);
-		}
-		[ForgeGeneratedField]
-		private int _displayNameString;
-		public event FieldEvent<int> displayNameStringChanged;
-		public Interpolated<int> displayNameStringInterpolation = new Interpolated<int>() { LerpT = 0f, Enabled = false };
-		public int displayNameString
-		{
-			get { return _displayNameString; }
-			set
-			{
-				// Don't do anything if the value is the same
-				if (_displayNameString == value)
-					return;
-
-				// Mark the field as dirty for the network to transmit
-				_dirtyFields[0] |= 0x4;
-				_displayNameString = value;
-				hasDirtyFields = true;
-			}
-		}
-
-		public void SetdisplayNameStringDirty()
-		{
-			_dirtyFields[0] |= 0x4;
-			hasDirtyFields = true;
-		}
-
-		private void RunChange_displayNameString(ulong timestep)
-		{
-			if (displayNameStringChanged != null) displayNameStringChanged(_displayNameString, timestep);
-			if (fieldAltered != null) fieldAltered("displayNameString", _displayNameString, timestep);
 		}
 
 		protected override void OwnershipChanged()
@@ -118,8 +118,8 @@ namespace BeardedManStudios.Forge.Networking.Generated
 		public void SnapInterpolations()
 		{
 			positionInterpolation.current = positionInterpolation.target;
+			scaleInterpolation.current = scaleInterpolation.target;
 			rotationInterpolation.current = rotationInterpolation.target;
-			displayNameStringInterpolation.current = displayNameStringInterpolation.target;
 		}
 
 		public override int UniqueIdentity { get { return IDENTITY; } }
@@ -127,8 +127,8 @@ namespace BeardedManStudios.Forge.Networking.Generated
 		protected override BMSByte WritePayload(BMSByte data)
 		{
 			UnityObjectMapper.Instance.MapBytes(data, _position);
+			UnityObjectMapper.Instance.MapBytes(data, _scale);
 			UnityObjectMapper.Instance.MapBytes(data, _rotation);
-			UnityObjectMapper.Instance.MapBytes(data, _displayNameString);
 
 			return data;
 		}
@@ -139,14 +139,14 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			positionInterpolation.current = _position;
 			positionInterpolation.target = _position;
 			RunChange_position(timestep);
+			_scale = UnityObjectMapper.Instance.Map<Vector3>(payload);
+			scaleInterpolation.current = _scale;
+			scaleInterpolation.target = _scale;
+			RunChange_scale(timestep);
 			_rotation = UnityObjectMapper.Instance.Map<Quaternion>(payload);
 			rotationInterpolation.current = _rotation;
 			rotationInterpolation.target = _rotation;
 			RunChange_rotation(timestep);
-			_displayNameString = UnityObjectMapper.Instance.Map<int>(payload);
-			displayNameStringInterpolation.current = _displayNameString;
-			displayNameStringInterpolation.target = _displayNameString;
-			RunChange_displayNameString(timestep);
 		}
 
 		protected override BMSByte SerializeDirtyFields()
@@ -157,9 +157,9 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			if ((0x1 & _dirtyFields[0]) != 0)
 				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _position);
 			if ((0x2 & _dirtyFields[0]) != 0)
-				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _rotation);
+				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _scale);
 			if ((0x4 & _dirtyFields[0]) != 0)
-				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _displayNameString);
+				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _rotation);
 
 			// Reset all the dirty fields
 			for (int i = 0; i < _dirtyFields.Length; i++)
@@ -191,6 +191,19 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			}
 			if ((0x2 & readDirtyFlags[0]) != 0)
 			{
+				if (scaleInterpolation.Enabled)
+				{
+					scaleInterpolation.target = UnityObjectMapper.Instance.Map<Vector3>(data);
+					scaleInterpolation.Timestep = timestep;
+				}
+				else
+				{
+					_scale = UnityObjectMapper.Instance.Map<Vector3>(data);
+					RunChange_scale(timestep);
+				}
+			}
+			if ((0x4 & readDirtyFlags[0]) != 0)
+			{
 				if (rotationInterpolation.Enabled)
 				{
 					rotationInterpolation.target = UnityObjectMapper.Instance.Map<Quaternion>(data);
@@ -200,19 +213,6 @@ namespace BeardedManStudios.Forge.Networking.Generated
 				{
 					_rotation = UnityObjectMapper.Instance.Map<Quaternion>(data);
 					RunChange_rotation(timestep);
-				}
-			}
-			if ((0x4 & readDirtyFlags[0]) != 0)
-			{
-				if (displayNameStringInterpolation.Enabled)
-				{
-					displayNameStringInterpolation.target = UnityObjectMapper.Instance.Map<int>(data);
-					displayNameStringInterpolation.Timestep = timestep;
-				}
-				else
-				{
-					_displayNameString = UnityObjectMapper.Instance.Map<int>(data);
-					RunChange_displayNameString(timestep);
 				}
 			}
 		}
@@ -227,15 +227,15 @@ namespace BeardedManStudios.Forge.Networking.Generated
 				_position = (Vector3)positionInterpolation.Interpolate();
 				//RunChange_position(positionInterpolation.Timestep);
 			}
+			if (scaleInterpolation.Enabled && !scaleInterpolation.current.UnityNear(scaleInterpolation.target, 0.0015f))
+			{
+				_scale = (Vector3)scaleInterpolation.Interpolate();
+				//RunChange_scale(scaleInterpolation.Timestep);
+			}
 			if (rotationInterpolation.Enabled && !rotationInterpolation.current.UnityNear(rotationInterpolation.target, 0.0015f))
 			{
 				_rotation = (Quaternion)rotationInterpolation.Interpolate();
 				//RunChange_rotation(rotationInterpolation.Timestep);
-			}
-			if (displayNameStringInterpolation.Enabled && !displayNameStringInterpolation.current.UnityNear(displayNameStringInterpolation.target, 0.0015f))
-			{
-				_displayNameString = (int)displayNameStringInterpolation.Interpolate();
-				//RunChange_displayNameString(displayNameStringInterpolation.Timestep);
 			}
 		}
 
@@ -246,9 +246,9 @@ namespace BeardedManStudios.Forge.Networking.Generated
 
 		}
 
-		public CubeSpinnerNetworkObject() : base() { Initialize(); }
-		public CubeSpinnerNetworkObject(NetWorker networker, INetworkBehavior networkBehavior = null, int createCode = 0, byte[] metadata = null) : base(networker, networkBehavior, createCode, metadata) { Initialize(); }
-		public CubeSpinnerNetworkObject(NetWorker networker, uint serverId, FrameStream frame) : base(networker, serverId, frame) { Initialize(); }
+		public GameBallNetworkObject() : base() { Initialize(); }
+		public GameBallNetworkObject(NetWorker networker, INetworkBehavior networkBehavior = null, int createCode = 0, byte[] metadata = null) : base(networker, networkBehavior, createCode, metadata) { Initialize(); }
+		public GameBallNetworkObject(NetWorker networker, uint serverId, FrameStream frame) : base(networker, serverId, frame) { Initialize(); }
 
 		// DO NOT TOUCH, THIS GETS GENERATED PLEASE EXTEND THIS CLASS IF YOU WISH TO HAVE CUSTOM CODE ADDITIONS
 	}
