@@ -21,7 +21,7 @@ public class LocationOfCopy : MonoBehaviour
         Ray origin = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(origin, out hit, 10f)) {
+        if (Physics.Raycast(origin, out hit, 10f)) { /// FIX SO THAT THE CHARACTER's RAYCAST STOP WHEN IT HITS AN OBJECT
             InstantiateLocationOfCopy(origin);
         }
         else {

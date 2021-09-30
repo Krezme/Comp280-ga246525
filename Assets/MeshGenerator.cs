@@ -40,9 +40,5 @@ public class MeshGenerator : MonoBehaviour
         meshFilter.mesh = mesh;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
