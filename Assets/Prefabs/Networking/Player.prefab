@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6919404332484089728}
   - component: {fileID: 4358698667824264100}
   - component: {fileID: 521707744491176541}
-  - component: {fileID: 451525816}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -80,19 +79,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Test
---- !u!114 &451525816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232519197659478099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cbae3ff6f4352e429fc6f2ff24dfb89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubeSpinner: {fileID: 1021798555967441882}
 --- !u!1 &977098208829827673
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +195,7 @@ GameObject:
   - component: {fileID: 1021798555967441882}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,7 +291,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1021798555967441882
 MonoBehaviour:
@@ -319,3 +305,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3947cce49332bf24eb190d0adae2f2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayNameText: {fileID: 521707744491176541}
