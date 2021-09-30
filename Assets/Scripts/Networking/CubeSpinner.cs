@@ -1,14 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using BeardedManStudios.Forge.Networking;
 using BeardedManStudios.Forge.Networking.Generated;
+using UnityEngine;
+// We extend PlayerBehavior which extends NetworkBehavior which extends MonoBehaviour
 public class CubeSpinner : CubeSpinnerBehavior
 {
+
     float speed = 15;
-    // Start is called before the first frame update
-    void Start()
+
+    // These strings are to be used to construct a player's name
+    // by randomly combining 2 strings
+    private string[] nameParts = new string[] {
+        "pigeon", "cat", "dog", "red", "blue", "green",
+        "unity", "unreal" 
+    };
+
+    public string displayName { get; private set; }
+    // NetworkStart() is **automatically** called, when a networkObject
+    // has been fully setup on the network and ready/finalized on the network!
+    // In simpler words, think of it like Unity's Start() but for the network ;)
+    protected override void NetworkStart()
     {
+        base.NetworkStart();
+        // If this networkObject is actually the **enemy** Player
+        // hence not the one we will control and own
+        if (!networkObject.IsOwner)
+        {
+            // There is no reason to try and simulate physics since
+            // the position is being sent across the network anyway
+            Destroy(GetComponent<Rigidbody>());
+        }
+        // Assign the name when this object is setup on the network
+        ChangeName();
     }
+    public void ChangeName()
+    {
+        // Only the owning client of this object can assign the name
+        if (!networkObject.IsOwner)
+            return;
+        // Get a random index for the first name
+        int first = Random.Range(0, nameParts.Length - 1);
+        // Get a random index for the last name
+        int last = Random.Range(0, nameParts.Length - 1);
+        // Assign the name to the random selection
+        displayName = nameParts[first] + " " + nameParts[last];
+        // Send an RPC to let everyone know what the name is for this player
+        // We use "AllBuffered" so that if people come late they will get the
+        // latest name for this object
+        // We pass in "Name" for the args because we have 1 argument that
+        // is to be a string as it is set in the NCW
+        networkObject.SendRpc(RPC_UPDATE_NAME, Receivers.AllBuffered, displayName);
+    }
+    // Default Unity update method
+
     // Update is called once per frame
     void Update()
     {
@@ -30,5 +73,10 @@ public class CubeSpinner : CubeSpinnerBehavior
         // if we're the owner, we need to update the network object to tell everyone else
         networkObject.position = transform.position;
         networkObject.rotation = transform.rotation;
+    }
+
+    public override void UpdateName(RpcArgs args)
+    {
+        throw new System.NotImplementedException();
     }
 }
