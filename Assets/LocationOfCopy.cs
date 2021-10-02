@@ -22,16 +22,19 @@ public class LocationOfCopy : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(origin, out hit, 10f)) {
-            InstantiateLocationOfCopy(origin);
+            InstantiateLocationOfCopy(origin, hit);
         }
         else {
-            InstantiateLocationOfCopy(origin);
+            InstantiateLocationOfCopy(origin, hit);
         }
         
     }
 
-    void InstantiateLocationOfCopy (Ray origin) {
-        if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
+    void InstantiateLocationOfCopy (Ray origin, RaycastHit hit) {
+        if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied && (hit.point != null && hit.transform)) {
+            Instantiate(CopyData.instance.pasteObjectCopy, hit.point, Quaternion.Euler(0,0,0));
+        }
+        else if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
             Vector3 spawnPoint = transform.position + origin.direction * 10f;
             Instantiate(CopyData.instance.pasteObjectCopy, spawnPoint, Quaternion.Euler(0,0,0));   
             Debug.Log(origin.direction);
