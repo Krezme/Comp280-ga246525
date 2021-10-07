@@ -31,7 +31,7 @@ public class LocationOfCopy : MonoBehaviour
     }
 
     void InstantiateLocationOfCopy (Ray origin, RaycastHit hit) {
-        if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied && (hit.point != null && hit.transform)) { /// (hit.point != null) for "Drawing"
+        if  (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied && (hit.point != null && hit.transform)) { /// (hit.point != null) for "Drawing"
             Instantiate(CopyData.instance.pasteObjectCopy, hit.point, Quaternion.Euler(0,0,0));
         }
         else if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
