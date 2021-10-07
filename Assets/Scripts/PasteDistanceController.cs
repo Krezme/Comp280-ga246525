@@ -13,7 +13,7 @@ public class PasteDistanceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        distanceSlider = FindObjectOfType<Canvas>().GetComponent<UIReferences>().slider.GetComponent<Slider>();
+        distanceSlider = UIReferences.instance.slider.GetComponent<Slider>();
     }
 
     // Update is called once per frame
