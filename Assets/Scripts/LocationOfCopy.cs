@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LocationOfCopy : MonoBehaviour
 {
+
+    public float maxDistanceOfCopy = 10f;
+    public float minDistanceOfCopy = 2f;
+    public float currentDistanceOfCopy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +40,7 @@ public class LocationOfCopy : MonoBehaviour
             Instantiate(CopyData.instance.pasteObjectCopy, hit.point, Quaternion.Euler(0,0,0));
         }
         else if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
-            Vector3 spawnPoint = transform.position + origin.direction * 10f;
+            Vector3 spawnPoint = transform.position + origin.direction * currentDistanceOfCopy;
             Instantiate(CopyData.instance.pasteObjectCopy, spawnPoint, Quaternion.Euler(0,0,0));   
             Debug.Log(origin.direction);
         }

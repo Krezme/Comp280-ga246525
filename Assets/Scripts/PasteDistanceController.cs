@@ -10,10 +10,13 @@ public class PasteDistanceController : MonoBehaviour
 
     private Slider distanceSlider;
 
+    private LocationOfCopy locationOfCopy;
+
     // Start is called before the first frame update
     void Start()
     {
         distanceSlider = UIReferences.instance.slider.GetComponent<Slider>();
+        locationOfCopy = GetComponent<LocationOfCopy>();
     }
 
     // Update is called once per frame
@@ -22,10 +25,17 @@ public class PasteDistanceController : MonoBehaviour
         
             
         distanceValue += Input.mouseScrollDelta.y / 25;
-        distanceValue = Mathf.Clamp(distanceValue, 0, 1);
+        distanceValue = Mathf.Clamp(distanceValue, 0.2f, 1);
 
         distanceSlider.value = distanceValue;
+        SetCurrentDistanceOfCopy();
 
         Debug.Log(distanceValue);
+    }
+
+    void SetCurrentDistanceOfCopy()
+    {
+        locationOfCopy.currentDistanceOfCopy = distanceValue * locationOfCopy.maxDistanceOfCopy;
+        locationOfCopy.currentDistanceOfCopy = locationOfCopy.currentDistanceOfCopy < locationOfCopy.minDistanceOfCopy ? locationOfCopy.minDistanceOfCopy : locationOfCopy.currentDistanceOfCopy;
     }
 }
