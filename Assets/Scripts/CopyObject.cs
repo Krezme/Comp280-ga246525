@@ -5,7 +5,10 @@ using UnityEngine;
 public class CopyObject : MonoBehaviour
 {
     [SerializeField] LayerMask copyableObject;
-    [SerializeField] int maxDistance = 1000;
+
+    [Header("CopyDistance")]
+    [SerializeField] bool useCappedDistance = false;
+    [SerializeField] float maxDistance = 1000f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,9 @@ public class CopyObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        maxDistance = useCappedDistance ? maxDistance : Mathf.Infinity;
+
         Ray origin = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 

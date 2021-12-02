@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LocationOfCopy : MonoBehaviour
 {
+
+    public float maxDistanceOfCopy = 10f;
+    public float minDistanceOfCopy = 2f;
+    public float currentDistanceOfCopy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +26,21 @@ public class LocationOfCopy : MonoBehaviour
         Ray origin = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(origin, out hit, 10f)) { /// FIX SO THAT THE CHARACTER's RAYCAST STOP WHEN IT HITS AN OBJECT
-            InstantiateLocationOfCopy(origin);
+        if (Physics.Raycast(origin, out hit, 10f)) {
+            InstantiateLocationOfCopy(origin, hit);
         }
         else {
-            InstantiateLocationOfCopy(origin);
+            InstantiateLocationOfCopy(origin, hit);
         }
         
     }
 
-    void InstantiateLocationOfCopy (Ray origin) {
-        if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
-            Vector3 spawnPoint = transform.position + origin.direction * 10f;
+    void InstantiateLocationOfCopy (Ray origin, RaycastHit hit) {
+        if  (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied && (hit.point != null && hit.transform)) { /// (hit.point != null) for "Drawing"
+            Instantiate(CopyData.instance.pasteObjectCopy, hit.point, Quaternion.Euler(0,0,0));
+        }
+        else if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
+            Vector3 spawnPoint = transform.position + origin.direction * currentDistanceOfCopy;
             Instantiate(CopyData.instance.pasteObjectCopy, spawnPoint, Quaternion.Euler(0,0,0));   
             Debug.Log(origin.direction);
         }
