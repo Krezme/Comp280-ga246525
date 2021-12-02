@@ -7,5 +7,5 @@ public class AIController : MonoBehaviour
 {
     public NavMeshAgent agent;
 
-
+    
 }
