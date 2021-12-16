@@ -16,6 +16,7 @@ public class PasteObject : MonoBehaviour
         meshFilter.mesh.vertices = CopyData.instance.copiedGameObjectVertices;
         meshFilter.mesh.triangles = CopyData.instance.copiedGameObjectTris;
         meshFilter.mesh.RecalculateNormals();
-
+        gameObject.GetComponent<Renderer>().material = CopyData.instance.copyMaterial;
+        gameObject.AddComponent<MeshCollider>();
     }
 }
