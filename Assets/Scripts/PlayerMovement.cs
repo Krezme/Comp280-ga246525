@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BeardedManStudios.Forge.Networking.Generated;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : PlayerMovementBehavior
 {
     public CharacterController characterController;
 
@@ -24,6 +25,17 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
 
     void Update () {
+
+        if (networkObject == null) {
+            return;
+        }
+
+        if (!networkObject.IsOwner) {
+            transform.position = networkObject.position;
+            transform.rotation = networkObject.rotation;
+    	    return;
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, goundLayer);
 
         if (isGrounded && velocity.y < 0f) {
@@ -45,5 +57,8 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         characterController.Move(velocity * Time.deltaTime);
+
+        networkObject.position = transform.position;
+        networkObject.rotation = transform.rotation;
     }
 }
