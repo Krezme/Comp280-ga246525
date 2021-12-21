@@ -26,6 +26,7 @@ public class PlayerMovement : PlayerMovementBehavior
 
     void Update () {
 
+#if !UNITY_EDITOR
         if (networkObject == null) {
             return;
         }
@@ -33,13 +34,13 @@ public class PlayerMovement : PlayerMovementBehavior
         if (!networkObject.IsOwner) {
             transform.position = networkObject.position;
             transform.rotation = networkObject.rotation;
-    	    return;
+            return;
         }
+#endif
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, goundLayer);
 
         if (isGrounded && velocity.y < 0f) {
-            Debug.Log("isGrounded");
             velocity.y = -1f;
         }
 
@@ -58,7 +59,9 @@ public class PlayerMovement : PlayerMovementBehavior
 
         characterController.Move(velocity * Time.deltaTime);
 
+#if !UNITY_EDITOR
         networkObject.position = transform.position;
         networkObject.rotation = transform.rotation;
+#endif
     }
 }

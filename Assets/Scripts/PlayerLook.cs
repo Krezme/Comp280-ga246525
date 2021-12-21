@@ -15,13 +15,16 @@ public class PlayerLook : PlayerLookBehavior
     void Start () {
         Cursor.lockState = CursorLockMode.Locked;
         playerGameObject = transform.parent.gameObject;
+
+#if !UNITY_EDITOR
         if (!networkObject.IsOwner) {
             transform.GetComponentInChildren<Camera>().gameObject.SetActive(false);
         }
+#endif
     }
 
     void Update () {
-
+#if !UNITY_EDITOR
         if (networkObject == null) {
             return;
         }
@@ -30,6 +33,7 @@ public class PlayerLook : PlayerLookBehavior
             transform.rotation = networkObject.rotation;
             return;
         }
+#endif
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -40,6 +44,8 @@ public class PlayerLook : PlayerLookBehavior
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerGameObject.transform.Rotate(Vector3.up, mouseX);
 
+#if !UNITY_EDITOR
         networkObject.rotation = transform.rotation;
+#endif
     }
 }

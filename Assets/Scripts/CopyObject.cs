@@ -24,9 +24,15 @@ public class CopyObject : MonoBehaviour
 
         Ray origin = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        
+        if (Input.GetButtonDown("Fire2")) {
+            Debug.Log("right click pressed");
+        }
 
-        if (Physics.Raycast(origin, out hit, maxDistance, copyableObject.GetHashCode())) {
+        if (Physics.Raycast(origin, out hit, maxDistance, copyableObject)) {
+            Debug.Log("29");
             if (Input.GetButtonDown("Fire2")) {
+                Debug.Log("Copy");
                 CopyData.instance.copiedGameObjectVertices = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.vertices;
                 CopyData.instance.copiedGameObjectTris = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.triangles;
                 CopyData.instance.itemCopied = true;

@@ -24,18 +24,18 @@ public class PasteDistanceController : MonoBehaviour
     {
         
             
-        distanceValue += Input.mouseScrollDelta.y / 25;
+        /* distanceValue += Input.mouseScrollDelta.y / 25;
         distanceValue = Mathf.Clamp(distanceValue, 0.2f, 1);
 
         distanceSlider.value = distanceValue;
         SetCurrentDistanceOfCopy();
 
-        Debug.Log(distanceValue);
+        Debug.Log(distanceValue); */
     }
 
-    void SetCurrentDistanceOfCopy()
+    /* void SetCurrentDistanceOfCopy()
     {
         locationOfCopy.currentDistanceOfCopy = distanceValue * locationOfCopy.maxDistanceOfCopy;
         locationOfCopy.currentDistanceOfCopy = locationOfCopy.currentDistanceOfCopy < locationOfCopy.minDistanceOfCopy ? locationOfCopy.minDistanceOfCopy : locationOfCopy.currentDistanceOfCopy;
-    }
+    } */
 }
