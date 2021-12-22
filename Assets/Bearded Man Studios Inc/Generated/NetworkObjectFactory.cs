@@ -55,6 +55,10 @@ namespace BeardedManStudios.Forge.Networking.Generated
 						availableCallback = true;
 						obj = new WandFollowCameraNetworkObject(networker, id, frame);
 						break;
+					case RaybitchSynkNetworkObject.IDENTITY:
+						availableCallback = true;
+						obj = new RaybitchSynkNetworkObject(networker, id, frame);
+						break;
 				}
 
 				if (!availableCallback)

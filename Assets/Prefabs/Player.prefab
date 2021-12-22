@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 7306372984393055685}
   - component: {fileID: 5659831897656506313}
   - component: {fileID: 8829882772522577176}
+  - component: {fileID: 5321135230492549991}
   m_Layer: 0
   m_Name: Raybitch
   m_TagString: Untagged
@@ -509,3 +510,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5321135230492549991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985847405146902950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3931eb119431b541a8846d85d913b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisMeshRenderer: {fileID: 8829882772522577176}
+  player2Material: {fileID: 2100000, guid: d3096d815ad0003478263e7e2954fdbc, type: 2}
