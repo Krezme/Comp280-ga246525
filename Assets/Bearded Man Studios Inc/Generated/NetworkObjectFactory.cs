@@ -47,6 +47,14 @@ namespace BeardedManStudios.Forge.Networking.Generated
 						availableCallback = true;
 						obj = new PlayerMovementNetworkObject(networker, id, frame);
 						break;
+					case RandomPanelSpawnSyncNetworkObject.IDENTITY:
+						availableCallback = true;
+						obj = new RandomPanelSpawnSyncNetworkObject(networker, id, frame);
+						break;
+					case RaybitchSynkNetworkObject.IDENTITY:
+						availableCallback = true;
+						obj = new RaybitchSynkNetworkObject(networker, id, frame);
+						break;
 					case TestNetworkObject.IDENTITY:
 						availableCallback = true;
 						obj = new TestNetworkObject(networker, id, frame);
@@ -54,10 +62,6 @@ namespace BeardedManStudios.Forge.Networking.Generated
 					case WandFollowCameraNetworkObject.IDENTITY:
 						availableCallback = true;
 						obj = new WandFollowCameraNetworkObject(networker, id, frame);
-						break;
-					case RaybitchSynkNetworkObject.IDENTITY:
-						availableCallback = true;
-						obj = new RaybitchSynkNetworkObject(networker, id, frame);
 						break;
 				}
 

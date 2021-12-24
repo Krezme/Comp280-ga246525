@@ -16,9 +16,10 @@ namespace BeardedManStudios.Forge.Networking.Unity
 		public GameObject[] NetworkCameraNetworkObject = null;
 		public GameObject[] PlayerLookNetworkObject = null;
 		public GameObject[] PlayerMovementNetworkObject = null;
+		public GameObject[] RandomPanelSpawnSyncNetworkObject = null;
+		public GameObject[] RaybitchSynkNetworkObject = null;
 		public GameObject[] TestNetworkObject = null;
 		public GameObject[] WandFollowCameraNetworkObject = null;
-		public GameObject[] RaybitchSynkNetworkObject = null;
 
 		protected virtual void SetupObjectCreatedEvent()
 		{
@@ -174,6 +175,52 @@ namespace BeardedManStudios.Forge.Networking.Unity
 						objectInitialized(newObj, obj);
 				});
 			}
+			else if (obj is RandomPanelSpawnSyncNetworkObject)
+			{
+				MainThreadManager.Run(() =>
+				{
+					NetworkBehavior newObj = null;
+					if (!NetworkBehavior.skipAttachIds.TryGetValue(obj.NetworkId, out newObj))
+					{
+						if (RandomPanelSpawnSyncNetworkObject.Length > 0 && RandomPanelSpawnSyncNetworkObject[obj.CreateCode] != null)
+						{
+							var go = Instantiate(RandomPanelSpawnSyncNetworkObject[obj.CreateCode]);
+							newObj = go.GetComponent<RandomPanelSpawnSyncBehavior>();
+						}
+					}
+
+					if (newObj == null)
+						return;
+						
+					newObj.Initialize(obj);
+
+					if (objectInitialized != null)
+						objectInitialized(newObj, obj);
+				});
+			}
+			else if (obj is RaybitchSynkNetworkObject)
+			{
+				MainThreadManager.Run(() =>
+				{
+					NetworkBehavior newObj = null;
+					if (!NetworkBehavior.skipAttachIds.TryGetValue(obj.NetworkId, out newObj))
+					{
+						if (RaybitchSynkNetworkObject.Length > 0 && RaybitchSynkNetworkObject[obj.CreateCode] != null)
+						{
+							var go = Instantiate(RaybitchSynkNetworkObject[obj.CreateCode]);
+							newObj = go.GetComponent<RaybitchSynkBehavior>();
+						}
+					}
+
+					if (newObj == null)
+						return;
+						
+					newObj.Initialize(obj);
+
+					if (objectInitialized != null)
+						objectInitialized(newObj, obj);
+				});
+			}
 			else if (obj is TestNetworkObject)
 			{
 				MainThreadManager.Run(() =>
@@ -208,29 +255,6 @@ namespace BeardedManStudios.Forge.Networking.Unity
 						{
 							var go = Instantiate(WandFollowCameraNetworkObject[obj.CreateCode]);
 							newObj = go.GetComponent<WandFollowCameraBehavior>();
-						}
-					}
-
-					if (newObj == null)
-						return;
-						
-					newObj.Initialize(obj);
-
-					if (objectInitialized != null)
-						objectInitialized(newObj, obj);
-				});
-			}
-			else if (obj is RaybitchSynkNetworkObject)
-			{
-				MainThreadManager.Run(() =>
-				{
-					NetworkBehavior newObj = null;
-					if (!NetworkBehavior.skipAttachIds.TryGetValue(obj.NetworkId, out newObj))
-					{
-						if (RaybitchSynkNetworkObject.Length > 0 && RaybitchSynkNetworkObject[obj.CreateCode] != null)
-						{
-							var go = Instantiate(RaybitchSynkNetworkObject[obj.CreateCode]);
-							newObj = go.GetComponent<RaybitchSynkBehavior>();
 						}
 					}
 
@@ -325,6 +349,30 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			
 			return netBehavior;
 		}
+		[Obsolete("Use InstantiateRandomPanelSpawnSync instead, its shorter and easier to type out ;)")]
+		public RandomPanelSpawnSyncBehavior InstantiateRandomPanelSpawnSyncNetworkObject(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
+		{
+			var go = Instantiate(RandomPanelSpawnSyncNetworkObject[index]);
+			var netBehavior = go.GetComponent<RandomPanelSpawnSyncBehavior>();
+			var obj = netBehavior.CreateNetworkObject(Networker, index);
+			go.GetComponent<RandomPanelSpawnSyncBehavior>().networkObject = (RandomPanelSpawnSyncNetworkObject)obj;
+
+			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
+			
+			return netBehavior;
+		}
+		[Obsolete("Use InstantiateRaybitchSynk instead, its shorter and easier to type out ;)")]
+		public RaybitchSynkBehavior InstantiateRaybitchSynkNetworkObject(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
+		{
+			var go = Instantiate(RaybitchSynkNetworkObject[index]);
+			var netBehavior = go.GetComponent<RaybitchSynkBehavior>();
+			var obj = netBehavior.CreateNetworkObject(Networker, index);
+			go.GetComponent<RaybitchSynkBehavior>().networkObject = (RaybitchSynkNetworkObject)obj;
+
+			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
+			
+			return netBehavior;
+		}
 		[Obsolete("Use InstantiateTest instead, its shorter and easier to type out ;)")]
 		public TestBehavior InstantiateTestNetworkObject(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
 		{
@@ -344,18 +392,6 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			var netBehavior = go.GetComponent<WandFollowCameraBehavior>();
 			var obj = netBehavior.CreateNetworkObject(Networker, index);
 			go.GetComponent<WandFollowCameraBehavior>().networkObject = (WandFollowCameraNetworkObject)obj;
-
-			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
-			
-			return netBehavior;
-		}
-		[Obsolete("Use InstantiateRaybitchSynk instead, its shorter and easier to type out ;)")]
-		public RaybitchSynkBehavior InstantiateRaybitchSynkNetworkObject(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
-		{
-			var go = Instantiate(RaybitchSynkNetworkObject[index]);
-			var netBehavior = go.GetComponent<RaybitchSynkBehavior>();
-			var obj = netBehavior.CreateNetworkObject(Networker, index);
-			go.GetComponent<RaybitchSynkBehavior>().networkObject = (RaybitchSynkNetworkObject)obj;
 
 			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
 			
@@ -669,6 +705,108 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			return netBehavior;
 		}
 		/// <summary>
+		/// Instantiate an instance of RandomPanelSpawnSync
+		/// </summary>
+		/// <returns>
+		/// A local instance of RandomPanelSpawnSyncBehavior
+		/// </returns>
+		/// <param name="index">The index of the RandomPanelSpawnSync prefab in the NetworkManager to Instantiate</param>
+		/// <param name="position">Optional parameter which defines the position of the created GameObject</param>
+		/// <param name="rotation">Optional parameter which defines the rotation of the created GameObject</param>
+		/// <param name="sendTransform">Optional Parameter to send transform data to other connected clients on Instantiation</param>
+		public RandomPanelSpawnSyncBehavior InstantiateRandomPanelSpawnSync(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
+		{
+			var go = Instantiate(RandomPanelSpawnSyncNetworkObject[index]);
+			var netBehavior = go.GetComponent<RandomPanelSpawnSyncBehavior>();
+
+			NetworkObject obj = null;
+			if (!sendTransform && position == null && rotation == null)
+				obj = netBehavior.CreateNetworkObject(Networker, index);
+			else
+			{
+				metadata.Clear();
+
+				if (position == null && rotation == null)
+				{
+					byte transformFlags = 0x1 | 0x2;
+					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
+					ObjectMapper.Instance.MapBytes(metadata, go.transform.position, go.transform.rotation);
+				}
+				else
+				{
+					byte transformFlags = 0x0;
+					transformFlags |= (byte)(position != null ? 0x1 : 0x0);
+					transformFlags |= (byte)(rotation != null ? 0x2 : 0x0);
+					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
+
+					if (position != null)
+						ObjectMapper.Instance.MapBytes(metadata, position.Value);
+
+					if (rotation != null)
+						ObjectMapper.Instance.MapBytes(metadata, rotation.Value);
+				}
+
+				obj = netBehavior.CreateNetworkObject(Networker, index, metadata.CompressBytes());
+			}
+
+			go.GetComponent<RandomPanelSpawnSyncBehavior>().networkObject = (RandomPanelSpawnSyncNetworkObject)obj;
+
+			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
+			
+			return netBehavior;
+		}
+		/// <summary>
+		/// Instantiate an instance of RaybitchSynk
+		/// </summary>
+		/// <returns>
+		/// A local instance of RaybitchSynkBehavior
+		/// </returns>
+		/// <param name="index">The index of the RaybitchSynk prefab in the NetworkManager to Instantiate</param>
+		/// <param name="position">Optional parameter which defines the position of the created GameObject</param>
+		/// <param name="rotation">Optional parameter which defines the rotation of the created GameObject</param>
+		/// <param name="sendTransform">Optional Parameter to send transform data to other connected clients on Instantiation</param>
+		public RaybitchSynkBehavior InstantiateRaybitchSynk(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
+		{
+			var go = Instantiate(RaybitchSynkNetworkObject[index]);
+			var netBehavior = go.GetComponent<RaybitchSynkBehavior>();
+
+			NetworkObject obj = null;
+			if (!sendTransform && position == null && rotation == null)
+				obj = netBehavior.CreateNetworkObject(Networker, index);
+			else
+			{
+				metadata.Clear();
+
+				if (position == null && rotation == null)
+				{
+					byte transformFlags = 0x1 | 0x2;
+					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
+					ObjectMapper.Instance.MapBytes(metadata, go.transform.position, go.transform.rotation);
+				}
+				else
+				{
+					byte transformFlags = 0x0;
+					transformFlags |= (byte)(position != null ? 0x1 : 0x0);
+					transformFlags |= (byte)(rotation != null ? 0x2 : 0x0);
+					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
+
+					if (position != null)
+						ObjectMapper.Instance.MapBytes(metadata, position.Value);
+
+					if (rotation != null)
+						ObjectMapper.Instance.MapBytes(metadata, rotation.Value);
+				}
+
+				obj = netBehavior.CreateNetworkObject(Networker, index, metadata.CompressBytes());
+			}
+
+			go.GetComponent<RaybitchSynkBehavior>().networkObject = (RaybitchSynkNetworkObject)obj;
+
+			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
+			
+			return netBehavior;
+		}
+		/// <summary>
 		/// Instantiate an instance of Test
 		/// </summary>
 		/// <returns>
@@ -765,57 +903,6 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			}
 
 			go.GetComponent<WandFollowCameraBehavior>().networkObject = (WandFollowCameraNetworkObject)obj;
-
-			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
-			
-			return netBehavior;
-		}
-		/// <summary>
-		/// Instantiate an instance of RaybitchSynk
-		/// </summary>
-		/// <returns>
-		/// A local instance of RaybitchSynkBehavior
-		/// </returns>
-		/// <param name="index">The index of the RaybitchSynk prefab in the NetworkManager to Instantiate</param>
-		/// <param name="position">Optional parameter which defines the position of the created GameObject</param>
-		/// <param name="rotation">Optional parameter which defines the rotation of the created GameObject</param>
-		/// <param name="sendTransform">Optional Parameter to send transform data to other connected clients on Instantiation</param>
-		public RaybitchSynkBehavior InstantiateRaybitchSynk(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
-		{
-			var go = Instantiate(RaybitchSynkNetworkObject[index]);
-			var netBehavior = go.GetComponent<RaybitchSynkBehavior>();
-
-			NetworkObject obj = null;
-			if (!sendTransform && position == null && rotation == null)
-				obj = netBehavior.CreateNetworkObject(Networker, index);
-			else
-			{
-				metadata.Clear();
-
-				if (position == null && rotation == null)
-				{
-					byte transformFlags = 0x1 | 0x2;
-					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
-					ObjectMapper.Instance.MapBytes(metadata, go.transform.position, go.transform.rotation);
-				}
-				else
-				{
-					byte transformFlags = 0x0;
-					transformFlags |= (byte)(position != null ? 0x1 : 0x0);
-					transformFlags |= (byte)(rotation != null ? 0x2 : 0x0);
-					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
-
-					if (position != null)
-						ObjectMapper.Instance.MapBytes(metadata, position.Value);
-
-					if (rotation != null)
-						ObjectMapper.Instance.MapBytes(metadata, rotation.Value);
-				}
-
-				obj = netBehavior.CreateNetworkObject(Networker, index, metadata.CompressBytes());
-			}
-
-			go.GetComponent<RaybitchSynkBehavior>().networkObject = (RaybitchSynkNetworkObject)obj;
 
 			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
 			

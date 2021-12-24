@@ -203,6 +203,7 @@ namespace BeardedManStudios.Forge.Networking.UnityEditor
 			_referenceVariables.Add(typeof(object).Name, "object");
 			_referenceVariables.Add(typeof(object[]).Name, "object[]");
 			_referenceVariables.Add(typeof(byte[]).Name, "byte[]");
+			_referenceVariables.Add(typeof(int[]).Name, "int[]");
 
 			_scrollView = Vector2.zero;
 			_editorButtons = new List<ForgeEditorButton>();
@@ -802,10 +803,10 @@ namespace BeardedManStudios.Forge.Networking.UnityEditor
 				StringBuilder helperNames = new StringBuilder();
 				StringBuilder innerJSON = new StringBuilder();
 				StringBuilder innerHelperTypesJSON = new StringBuilder();
+				
 				for (int x = 0; x < btn.RPCVariables[i].ArgumentCount; ++x)
 				{
 					Type t = ForgeClassFieldRPCValue.GetTypeFromAcceptable(btn.RPCVariables[i].FieldTypes[x].Type);
-
 					helperNames.AppendLine("\t\t/// " + _referenceVariables[t.Name] + " " + btn.RPCVariables[i].FieldTypes[x].HelperName);
 
 					string fieldHelper = btn.RPCVariables[i].FieldTypes[x].HelperName;

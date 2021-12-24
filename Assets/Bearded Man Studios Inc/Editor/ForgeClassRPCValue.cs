@@ -87,6 +87,8 @@ namespace BeardedManStudios.Forge.Networking.UnityEditor
 			//	type = ForgeAcceptableRPCTypes.OBJECT_ARRAY;
 			else if (fieldType == typeof(byte[]))
 				type = ForgeAcceptableRPCTypes.BYTE_ARRAY;
+			else if (fieldType == typeof(int[]))
+				type = ForgeAcceptableRPCTypes.INT_ARRAY; 
 			else
 				type = ForgeAcceptableRPCTypes.Unknown;
 

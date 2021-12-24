@@ -24,6 +24,7 @@
 		QUATERNION = 15,
 		COLOR = 16,
 		//OBJECT_ARRAY = 17,
-		BYTE_ARRAY = 18
+		BYTE_ARRAY = 18,
+		INT_ARRAY = 19
 	}
 }

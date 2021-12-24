@@ -91,6 +91,8 @@ namespace BeardedManStudios.Forge.Networking.UnityEditor
 			//	type = ForgeAcceptableRPCTypes.OBJECT_ARRAY;
 			else if (fieldType == typeof(byte[]))
 				type = ForgeAcceptableRPCTypes.BYTE_ARRAY;
+			else if (fieldType == typeof(int[]))//Added by Georgi Aleksandrov
+				type = ForgeAcceptableRPCTypes.INT_ARRAY;//Added by Georgi Aleksandrov
 			else
 				type = ForgeAcceptableRPCTypes.Unknown;
 
@@ -139,6 +141,8 @@ namespace BeardedManStudios.Forge.Networking.UnityEditor
 				//	return typeof(object[]);
 				case ForgeAcceptableRPCTypes.BYTE_ARRAY:
 					return typeof(byte[]);
+				case ForgeAcceptableRPCTypes.INT_ARRAY: //Added by Georgi Aleksandrov
+					return typeof(int[]); //Added by Georgi Aleksandrov
 				default:
 					return null;
 			}
@@ -186,6 +190,8 @@ namespace BeardedManStudios.Forge.Networking.UnityEditor
 				//	return ForgeAcceptableRPCTypes.OBJECT_ARRAY;
 				case "byte[]":
 					return ForgeAcceptableRPCTypes.BYTE_ARRAY;
+				case "int[]": //Added by Georgi Aleksandrov
+					return ForgeAcceptableRPCTypes.INT_ARRAY; //Added by Georgi Aleksandrov
 				default:
 					return ForgeAcceptableRPCTypes.Unknown;
 			}
