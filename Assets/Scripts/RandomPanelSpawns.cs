@@ -15,8 +15,6 @@ public class RandomPanelSpawns : RandomPanelSpawnSyncBehavior
 
     public int[] tilesInOrder;
 
-    public Text text;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -53,13 +51,19 @@ public class RandomPanelSpawns : RandomPanelSpawnSyncBehavior
                 tilesInOrder[i] = rnd;
             }
             string intListInStringFormat = "";
-            foreach (int i in tilesInOrder) {
-                intListInStringFormat += i + ",";
+            for (int i = 0; i < tilesInOrder.Length; i++) {
+                if (i < tilesInOrder.Length - 1){
+                    intListInStringFormat += tilesInOrder[i] + ",";
+                }
+                else
+                {
+                    intListInStringFormat += tilesInOrder[i];
+                }
             }
             networkObject.SendRpc(RPC_PANELS_ORDER_LIST, Receivers.AllBuffered, intListInStringFormat);
         }
     }
-# endif
+#endif
 
     // Update is called once per frame
     void Update()
@@ -67,18 +71,26 @@ public class RandomPanelSpawns : RandomPanelSpawnSyncBehavior
         
     }
 
+
     public override void PanelsOrderList(RpcArgs args)
     {
-        /* string intListInStringFormat = 
-        string[] tempStringArr = intListInStringFormat.Split(char.Parse(","));
-        tilesInOrder = new int[tempStringArr.Length];
-        for (int i = 0; i < tempStringArr.Length; i++) {
-            tilesInOrder[i] = int.Parse(tempStringArr[i]);
+# if !UNITY_EDITOR
+        if (!networkObject.IsServer) {
+            string intListInStringFormat = args.GetAt<string>(0);
+            string[] tempStringArr = intListInStringFormat.Split(char.Parse(","));
+            tilesInOrder = new int[tempStringArr.Length];
+            spawnPoints = new Transform[this.transform.childCount];
+            for (int i = 0; i < tempStringArr.Length; i++) {
+                tilesInOrder[i] = int.Parse(tempStringArr[i]);
+            }
+            for (int i = 0; i < this.transform.childCount; i++)
+            {
+                spawnPoints[i] = this.transform.GetChild(i);
+                Instantiate(panels[tilesInOrder[i]], spawnPoints[i]);
+            }
         }
-        foreach (int i in tilesInOrder) {
-            intListInStringFormat += i + ",";
-        }
-        intListInStringFormat += " -------------------"; */
-        text.text = args.GetAt<string>(0);
+        return;
+# endif
+        throw new System.NotImplementedException();
     }
 }
