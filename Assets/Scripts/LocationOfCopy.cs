@@ -10,8 +10,11 @@ public class LocationOfCopy : MonoBehaviour
     public float currentDistanceOfCopy; */
     public Vector3 pointerOffset;
     public Camera playerCam;
+    [SerializeField] LayerMask pastableLayer;
 
     public GameObject raybitch;
+
+    [SerializeField]LayerMask layersToCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -29,15 +32,17 @@ public class LocationOfCopy : MonoBehaviour
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray origin = playerCam.ScreenPointToRay(screenCenterPoint);
         RaycastHit hit;
+        
+        layersToCheck.value = CopyData.instance.randomPanelLayerToPasteOn.value + pastableLayer.value;
 
-        if (Physics.Raycast(origin, out hit, 10f)) {
+        if (Physics.Raycast(origin, out hit, 10f, layersToCheck)) {
             
             InstantiateLocationOfCopy(origin, hit);
             raybitch.transform.position = hit.point;
         }
         else {
             
-            InstantiateLocationOfCopy(origin, hit);
+            //InstantiateLocationOfCopy(origin, hit);
             raybitch.transform.localPosition = (transform.position + pointerOffset) + origin.direction * 10f;
         }
         

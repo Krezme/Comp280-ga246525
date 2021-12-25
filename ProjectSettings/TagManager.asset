@@ -6,6 +6,14 @@ TagManager:
   tags:
   - DistanceSlider
   - GameManager
+  - BlueLeft
+  - RedLeft
+  - OrangeLeft
+  - GreenLeft
+  - BlueRight
+  - RedRight
+  - OrangeRight
+  - GreenRight
   layers:
   - Default
   - TransparentFX

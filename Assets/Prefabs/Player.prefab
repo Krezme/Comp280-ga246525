@@ -303,6 +303,7 @@ MonoBehaviour:
     m_Bits: 128
   useCappedDistance: 0
   maxDistance: 1000
+  playerCam: {fileID: 5455412676599618496}
 --- !u!114 &5455412675539524833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +319,13 @@ MonoBehaviour:
   maxDistanceOfCopy: 10
   pointerOffset: {x: 0, y: 0.619, z: 0}
   playerCam: {fileID: 5455412676599618496}
+  pastableLayer:
+    serializedVersion: 2
+    m_Bits: 128
   raybitch: {fileID: 7985847405146902950}
+  layersToCheck:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &5455412675539524834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,7 +447,7 @@ GameObject:
   - component: {fileID: 5659831897656506313}
   - component: {fileID: 8829882772522577176}
   - component: {fileID: 5321135230492549991}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Raybitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,7 +17,7 @@ public class CopyableObjectsFollowingPlayer : CopyableObjectsFollowingPlayerBeha
     {
         
     }
-
+# if !UNITY_EDITOR
     public void PlayerGameObject() {
         if (networkObject.IsServer) {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -37,4 +37,5 @@ public class CopyableObjectsFollowingPlayer : CopyableObjectsFollowingPlayerBeha
 
         transform.position = new Vector3(transform.position.x, transform.position.y, newPositionForCopyableObjectsZ);
     }
+# endif
 }

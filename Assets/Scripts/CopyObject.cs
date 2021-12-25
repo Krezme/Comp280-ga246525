@@ -9,6 +9,7 @@ public class CopyObject : MonoBehaviour
     [Header("CopyDistance")]
     [SerializeField] bool useCappedDistance = false;
     [SerializeField] float maxDistance = 1000f;
+    public Camera playerCam;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,8 @@ public class CopyObject : MonoBehaviour
 
         maxDistance = useCappedDistance ? maxDistance : Mathf.Infinity;
 
-        Ray origin = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        Ray origin = playerCam.ScreenPointToRay(screenCenterPoint);
         RaycastHit hit;
         
         if (Input.GetButtonDown("Fire2")) {
@@ -30,9 +32,9 @@ public class CopyObject : MonoBehaviour
         }
 
         if (Physics.Raycast(origin, out hit, maxDistance, copyableObject)) {
-            Debug.Log("29");
             if (Input.GetButtonDown("Fire2")) {
                 Debug.Log("Copy");
+                CopyData.instance.randomPanelLayerToPasteOn.value = 1<< LayerMask.NameToLayer(hit.transform.gameObject.tag);
                 CopyData.instance.copiedGameObjectVertices = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.vertices;
                 CopyData.instance.copiedGameObjectTris = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.triangles;
                 CopyData.instance.itemCopied = true;

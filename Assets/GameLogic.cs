@@ -12,9 +12,9 @@ public class GameLogic : MonoBehaviour
     {
 #if !UNITY_EDITOR
         NetworkManager.Instance.InstantiatePlayerMovement();
-#endif
         ObjectsToCoppyScripts[0].PlayerGameObject();
         ObjectsToCoppyScripts[1].PlayerGameObject();
+#endif
     }
 
     // Update is called once per frame
