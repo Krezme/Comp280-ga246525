@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7815290456130474533}
   - component: {fileID: 2862688951130467911}
   - component: {fileID: 6181707480910532565}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Orange Panel Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

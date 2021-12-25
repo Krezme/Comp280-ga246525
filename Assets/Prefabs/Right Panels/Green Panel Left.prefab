@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4525132857897675890}
   - component: {fileID: 7642253200007954418}
   - component: {fileID: 6666586611384880429}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Green Panel Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

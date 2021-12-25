@@ -37,7 +37,6 @@ public class PlayerMovement : PlayerMovementBehavior
             return;
         }
 #endif
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, goundLayer);
 
         if (isGrounded && velocity.y < 0f) {

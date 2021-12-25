@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - DistanceSlider
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -14,14 +15,14 @@ TagManager:
   - UI
   - Ground
   - Copyable
-  - Blue
-  - Red
-  - Orange
-  - Green
-  - 
-  - 
-  - 
-  - 
+  - BlueLeft
+  - RedLeft
+  - OrangeLeft
+  - GreenLeft
+  - BlueRight
+  - RedRight
+  - OrangeRight
+  - GreenRight
   - 
   - 
   - 
