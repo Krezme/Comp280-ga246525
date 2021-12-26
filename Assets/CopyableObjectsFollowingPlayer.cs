@@ -12,6 +12,15 @@ public class CopyableObjectsFollowingPlayer : CopyableObjectsFollowingPlayerBeha
 
     private GameObject player;
 
+    protected override void NetworkStart()
+    {
+        base.NetworkStart();
+
+        if (!networkObject.IsOwner) {
+            this.enabled = false;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

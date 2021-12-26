@@ -71,6 +71,10 @@ namespace BeardedManStudios.Forge.Networking.Generated
 						availableCallback = true;
 						obj = new WandFollowCameraNetworkObject(networker, id, frame);
 						break;
+					case LocationOfCopyNetworkObject.IDENTITY:
+						availableCallback = true;
+						obj = new LocationOfCopyNetworkObject(networker, id, frame);
+						break;
 				}
 
 				if (!availableCallback)

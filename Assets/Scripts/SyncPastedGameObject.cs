@@ -92,12 +92,10 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
     }
 
     private Vector3[] ConvertStringToVertices (string verticesInStringFormat) {
-        Debug.LogError(verticesInStringFormat);
         string[] vetricesInStringArrayFormat = verticesInStringFormat.Split(char.Parse("#"));
         Vector3[] vertices = new Vector3[vetricesInStringArrayFormat.Length];
         for (int i = 0; i < vetricesInStringArrayFormat.Length; i++) {
             string[] vetricesInStringArrayFormatByIndex = vetricesInStringArrayFormat[i].Split(char.Parse(","));
-            Debug.LogError(float.Parse(vetricesInStringArrayFormatByIndex[0]) + " " + float.Parse(vetricesInStringArrayFormatByIndex[1]) + " " + float.Parse(vetricesInStringArrayFormatByIndex[2]));
             Vector3 vertice = new Vector3(float.Parse(vetricesInStringArrayFormatByIndex[0]), float.Parse(vetricesInStringArrayFormatByIndex[1]), float.Parse(vetricesInStringArrayFormatByIndex[2]));
             vertices[i] = vertice;
         }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BeardedManStudios.Forge.Networking.Unity;
+using BeardedManStudios.Forge.Networking.Generated;
 
-public class LocationOfCopy : MonoBehaviour
+public class LocationOfCopy : LocationOfCopyBehavior
 {
 
     public float maxDistanceOfCopy = 10f;
@@ -16,6 +17,15 @@ public class LocationOfCopy : MonoBehaviour
     public GameObject raybitch;
 
     [SerializeField]LayerMask layersToCheck;
+
+    protected override void NetworkStart()
+    {
+        base.NetworkStart();
+
+        if (!networkObject.IsOwner) {
+            this.enabled = false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +56,6 @@ public class LocationOfCopy : MonoBehaviour
             //InstantiateLocationOfCopy(origin, hit);
             raybitch.transform.localPosition = (transform.position + pointerOffset) + origin.direction * 10f;
         }
-        
     }
 
     void InstantiateLocationOfCopy (Ray origin, RaycastHit hit) {
