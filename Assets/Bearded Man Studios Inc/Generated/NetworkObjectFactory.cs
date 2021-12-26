@@ -59,6 +59,10 @@ namespace BeardedManStudios.Forge.Networking.Generated
 						availableCallback = true;
 						obj = new RaybitchSynkNetworkObject(networker, id, frame);
 						break;
+					case SyncPastedGameObjectNetworkObject.IDENTITY:
+						availableCallback = true;
+						obj = new SyncPastedGameObjectNetworkObject(networker, id, frame);
+						break;
 					case TestNetworkObject.IDENTITY:
 						availableCallback = true;
 						obj = new TestNetworkObject(networker, id, frame);

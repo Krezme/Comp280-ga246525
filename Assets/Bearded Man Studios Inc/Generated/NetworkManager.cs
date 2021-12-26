@@ -19,6 +19,7 @@ namespace BeardedManStudios.Forge.Networking.Unity
 		public GameObject[] PlayerMovementNetworkObject = null;
 		public GameObject[] RandomPanelSpawnSyncNetworkObject = null;
 		public GameObject[] RaybitchSynkNetworkObject = null;
+		public GameObject[] SyncPastedGameObjectNetworkObject = null;
 		public GameObject[] TestNetworkObject = null;
 		public GameObject[] WandFollowCameraNetworkObject = null;
 
@@ -245,6 +246,29 @@ namespace BeardedManStudios.Forge.Networking.Unity
 						objectInitialized(newObj, obj);
 				});
 			}
+			else if (obj is SyncPastedGameObjectNetworkObject)
+			{
+				MainThreadManager.Run(() =>
+				{
+					NetworkBehavior newObj = null;
+					if (!NetworkBehavior.skipAttachIds.TryGetValue(obj.NetworkId, out newObj))
+					{
+						if (SyncPastedGameObjectNetworkObject.Length > 0 && SyncPastedGameObjectNetworkObject[obj.CreateCode] != null)
+						{
+							var go = Instantiate(SyncPastedGameObjectNetworkObject[obj.CreateCode]);
+							newObj = go.GetComponent<SyncPastedGameObjectBehavior>();
+						}
+					}
+
+					if (newObj == null)
+						return;
+						
+					newObj.Initialize(obj);
+
+					if (objectInitialized != null)
+						objectInitialized(newObj, obj);
+				});
+			}
 			else if (obj is TestNetworkObject)
 			{
 				MainThreadManager.Run(() =>
@@ -404,6 +428,18 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			var netBehavior = go.GetComponent<RaybitchSynkBehavior>();
 			var obj = netBehavior.CreateNetworkObject(Networker, index);
 			go.GetComponent<RaybitchSynkBehavior>().networkObject = (RaybitchSynkNetworkObject)obj;
+
+			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
+			
+			return netBehavior;
+		}
+		[Obsolete("Use InstantiateSyncPastedGameObject instead, its shorter and easier to type out ;)")]
+		public SyncPastedGameObjectBehavior InstantiateSyncPastedGameObjectNetworkObject(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
+		{
+			var go = Instantiate(SyncPastedGameObjectNetworkObject[index]);
+			var netBehavior = go.GetComponent<SyncPastedGameObjectBehavior>();
+			var obj = netBehavior.CreateNetworkObject(Networker, index);
+			go.GetComponent<SyncPastedGameObjectBehavior>().networkObject = (SyncPastedGameObjectNetworkObject)obj;
 
 			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
 			
@@ -888,6 +924,57 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			}
 
 			go.GetComponent<RaybitchSynkBehavior>().networkObject = (RaybitchSynkNetworkObject)obj;
+
+			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
+			
+			return netBehavior;
+		}
+		/// <summary>
+		/// Instantiate an instance of SyncPastedGameObject
+		/// </summary>
+		/// <returns>
+		/// A local instance of SyncPastedGameObjectBehavior
+		/// </returns>
+		/// <param name="index">The index of the SyncPastedGameObject prefab in the NetworkManager to Instantiate</param>
+		/// <param name="position">Optional parameter which defines the position of the created GameObject</param>
+		/// <param name="rotation">Optional parameter which defines the rotation of the created GameObject</param>
+		/// <param name="sendTransform">Optional Parameter to send transform data to other connected clients on Instantiation</param>
+		public SyncPastedGameObjectBehavior InstantiateSyncPastedGameObject(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
+		{
+			var go = Instantiate(SyncPastedGameObjectNetworkObject[index]);
+			var netBehavior = go.GetComponent<SyncPastedGameObjectBehavior>();
+
+			NetworkObject obj = null;
+			if (!sendTransform && position == null && rotation == null)
+				obj = netBehavior.CreateNetworkObject(Networker, index);
+			else
+			{
+				metadata.Clear();
+
+				if (position == null && rotation == null)
+				{
+					byte transformFlags = 0x1 | 0x2;
+					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
+					ObjectMapper.Instance.MapBytes(metadata, go.transform.position, go.transform.rotation);
+				}
+				else
+				{
+					byte transformFlags = 0x0;
+					transformFlags |= (byte)(position != null ? 0x1 : 0x0);
+					transformFlags |= (byte)(rotation != null ? 0x2 : 0x0);
+					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
+
+					if (position != null)
+						ObjectMapper.Instance.MapBytes(metadata, position.Value);
+
+					if (rotation != null)
+						ObjectMapper.Instance.MapBytes(metadata, rotation.Value);
+				}
+
+				obj = netBehavior.CreateNetworkObject(Networker, index, metadata.CompressBytes());
+			}
+
+			go.GetComponent<SyncPastedGameObjectBehavior>().networkObject = (SyncPastedGameObjectNetworkObject)obj;
 
 			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
 			

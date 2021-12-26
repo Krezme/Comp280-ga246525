@@ -32,7 +32,7 @@ public class CopyableObjectsFollowingPlayer : CopyableObjectsFollowingPlayerBeha
     void Update()
     {
         float currentPlayerPosZ = player.transform.position.z;
-        Debug.LogError(this.gameObject.name + " " + currentPlayerPosZ);
+        /* Debug.LogError(this.gameObject.name + " " + currentPlayerPosZ); */
         float newPositionForCopyableObjectsZ = Mathf.Clamp(currentPlayerPosZ, minPositon, maxPosition);
 
         transform.position = new Vector3(transform.position.x, transform.position.y, newPositionForCopyableObjectsZ);

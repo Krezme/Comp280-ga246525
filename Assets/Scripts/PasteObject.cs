@@ -6,8 +6,6 @@ using UnityEngine;
 public class PasteObject : MonoBehaviour
 {
 
-    
-
     // Start is called before the first frame update
     void Start()
     {

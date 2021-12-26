@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BeardedManStudios.Forge.Networking.Unity;
 
 public class LocationOfCopy : MonoBehaviour
 {
@@ -50,15 +51,15 @@ public class LocationOfCopy : MonoBehaviour
 
     void InstantiateLocationOfCopy (Ray origin, RaycastHit hit) {
         if  (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied && (hit.point != null && hit.transform)) { /// (hit.point != null) for "Drawing"
-            Instantiate(CopyData.instance.pasteObjectCopy, hit.point, Quaternion.Euler(0,0,0));
-            
+            //Instantiate(CopyData.instance.pasteObjectCopy, hit.point, Quaternion.Euler(0,0,0));
+            NetworkManager.Instance.InstantiateSyncPastedGameObject(0,hit.point,Quaternion.Euler(0,0,0));
         }
-        else if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
+        /* else if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
             Vector3 spawnPoint = (transform.position + pointerOffset) + origin.direction * maxDistanceOfCopy;
             Instantiate(CopyData.instance.pasteObjectCopy, spawnPoint, Quaternion.Euler(0,0,0));   
             
             Debug.Log(origin.direction);
-        }
+        } */
 
     }
 }

@@ -20,7 +20,6 @@ public class CopyObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         maxDistance = useCappedDistance ? maxDistance : Mathf.Infinity;
 
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
