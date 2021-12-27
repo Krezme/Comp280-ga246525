@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5981061061685755332}
   - component: {fileID: 4081665296485992242}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Copy Camera Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5455412675239216373}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 5455412675472597828}
   - component: {fileID: 5455412675472597830}
   - component: {fileID: 5455412675472597829}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 5455412675539524832}
   - component: {fileID: 5455412675539524833}
   - component: {fileID: 5455412675539524834}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fe58a820908c14884f83f0c562566d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceOfCopy: 10
+  maxDistanceOfCopy: 35
   pointerOffset: {x: 0, y: 0.619, z: 0}
   playerCam: {fileID: 5455412676599618496}
   pastableLayer:
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 5455412676599618496}
   - component: {fileID: 5455412676599618511}
   - component: {fileID: 5455412676599618498}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 5659831897656506313}
   - component: {fileID: 8829882772522577176}
   - component: {fileID: 5321135230492549991}
-  m_Layer: 2
+  m_Layer: 16
   m_Name: Raybitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}

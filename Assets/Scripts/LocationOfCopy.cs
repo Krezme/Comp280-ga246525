@@ -46,7 +46,7 @@ public class LocationOfCopy : LocationOfCopyBehavior
         
         layersToCheck.value = CopyData.instance.randomPanelLayerToPasteOn.value + pastableLayer.value;
 
-        if (Physics.Raycast(origin, out hit, 10f, layersToCheck)) {
+        if (Physics.Raycast(origin, out hit, maxDistanceOfCopy, layersToCheck)) {
             
             InstantiateLocationOfCopy(origin, hit);
             raybitch.transform.position = hit.point;
@@ -54,7 +54,7 @@ public class LocationOfCopy : LocationOfCopyBehavior
         else {
             
             //InstantiateLocationOfCopy(origin, hit);
-            raybitch.transform.localPosition = (transform.position + pointerOffset) + origin.direction * 10f;
+            raybitch.transform.localPosition = (transform.position + pointerOffset) + origin.direction * maxDistanceOfCopy;
         }
     }
 
