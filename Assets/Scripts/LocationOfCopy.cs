@@ -61,7 +61,21 @@ public class LocationOfCopy : LocationOfCopyBehavior
     void InstantiateLocationOfCopy (Ray origin, RaycastHit hit) {
         if  (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied && (hit.point != null && hit.transform)) { /// (hit.point != null) for "Drawing"
             //Instantiate(CopyData.instance.pasteObjectCopy, hit.point, Quaternion.Euler(0,0,0));
-            NetworkManager.Instance.InstantiateSyncPastedGameObject(0,hit.point,Quaternion.Euler(0,0,0));
+            Vector3 positionOffset = Vector3.zero;
+            if (CopyData.instance.randomPanelLayerToPasteOn.value == 1<< LayerMask.NameToLayer("BlueLeft") ||
+            CopyData.instance.randomPanelLayerToPasteOn.value == 1<< LayerMask.NameToLayer("RedLeft") ||
+            CopyData.instance.randomPanelLayerToPasteOn.value == 1<< LayerMask.NameToLayer("OrangeLeft") ||
+            CopyData.instance.randomPanelLayerToPasteOn.value == 1<< LayerMask.NameToLayer("GreenLeft")) {
+                positionOffset = new Vector3(0.5f, 0, 0);
+            }
+            else if (CopyData.instance.randomPanelLayerToPasteOn.value == 1<< LayerMask.NameToLayer("BlueRight") ||
+            CopyData.instance.randomPanelLayerToPasteOn.value == 1<< LayerMask.NameToLayer("RedRight") ||
+            CopyData.instance.randomPanelLayerToPasteOn.value == 1<< LayerMask.NameToLayer("OrangeRight") ||
+            CopyData.instance.randomPanelLayerToPasteOn.value == 1<< LayerMask.NameToLayer("GreenRight")) {
+                positionOffset = new Vector3(-0.5f, 0, 0);
+            }
+            NetworkManager.Instance.InstantiateSyncPastedGameObject(0,new Vector3(hit.transform.gameObject.transform.position.x + positionOffset.x, 
+            hit.transform.gameObject.transform.position.y, hit.transform.gameObject.transform.position.z),Quaternion.Euler(0,0,0));
         }
         /* else if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
             Vector3 spawnPoint = (transform.position + pointerOffset) + origin.direction * maxDistanceOfCopy;
