@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace BeardedManStudios.Forge.Networking.Generated
 {
-	[GeneratedRPC("{\"types\":[[\"string\", \"string\"]]")]
-	[GeneratedRPCVariableNames("{\"types\":[[\"pastedVerticesString\", \"pastedTrisString\"]]")]
+	[GeneratedRPC("{\"types\":[[\"string\", \"string\", \"Color\"]]")]
+	[GeneratedRPCVariableNames("{\"types\":[[\"pastedVerticesString\", \"pastedTrisString\", \"pastedColour\"]]")]
 	public abstract partial class SyncPastedGameObjectBehavior : NetworkBehavior
 	{
 		public const byte RPC_PASTED_GAME_OBJECT = 0 + 5;
@@ -22,7 +22,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			networkObject.AttachedBehavior = this;
 
 			base.SetupHelperRpcs(networkObject);
-			networkObject.RegisterRpc("PastedGameObject", PastedGameObject, typeof(string), typeof(string));
+			networkObject.RegisterRpc("PastedGameObject", PastedGameObject, typeof(string), typeof(string), typeof(Color));
 
 			networkObject.onDestroy += DestroyGameObject;
 
@@ -103,6 +103,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 		/// Arguments:
 		/// string pastedVerticesString
 		/// string pastedTrisString
+		/// Color pastedColour
 		/// </summary>
 		public abstract void PastedGameObject(RpcArgs args);
 

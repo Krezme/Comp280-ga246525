@@ -11,6 +11,9 @@ public class CopyObject : MonoBehaviour
     [SerializeField] float maxDistance = 1000f;
     public Camera playerCam;
 
+    string[] tagsLeft = new string[4] {"BlueLeft", "RedLeft", "OrangeLeft", "GreenLeft"};
+    string[] tagsRight = new string[4] {"BlueRight", "RedRight", "OrangeRight", "GreenRight"};
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +39,22 @@ public class CopyObject : MonoBehaviour
                 CopyData.instance.randomPanelLayerToPasteOn.value = 1<< LayerMask.NameToLayer(hit.transform.gameObject.tag);
                 CopyData.instance.copiedGameObjectVertices = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.vertices;
                 CopyData.instance.copiedGameObjectTris = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.triangles;
+                CopyData.instance.selectedMaterial = SetCopiedMaterial(hit.transform.gameObject);
                 CopyData.instance.itemCopied = true;
                 Debug.Log("Game Object: " + hit.transform.gameObject.name + " is coppied.");
             }
         }
+    }
+
+    int SetCopiedMaterial (GameObject gameObject) {
+        for (int i = 0; i < tagsLeft.Length; i++) {
+            if (gameObject.tag == tagsLeft[i]) {
+                return i;
+            }
+            if (gameObject.tag == tagsRight[i]) {
+                return i; 
+            }
+        }
+        return 0;
     }
 }

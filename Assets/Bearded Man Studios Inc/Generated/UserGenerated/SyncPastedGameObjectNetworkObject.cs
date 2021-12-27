@@ -8,7 +8,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 	[GeneratedInterpol("{\"inter\":[0.15,0.15]")]
 	public partial class SyncPastedGameObjectNetworkObject : NetworkObject
 	{
-		public const int IDENTITY = 10;
+		public const int IDENTITY = 14;
 
 		private byte[] _dirtyFields = new byte[1];
 

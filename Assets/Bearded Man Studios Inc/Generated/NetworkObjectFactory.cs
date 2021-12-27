@@ -39,6 +39,10 @@ namespace BeardedManStudios.Forge.Networking.Generated
 						availableCallback = true;
 						obj = new ExampleProximityPlayerNetworkObject(networker, id, frame);
 						break;
+					case LocationOfCopyNetworkObject.IDENTITY:
+						availableCallback = true;
+						obj = new LocationOfCopyNetworkObject(networker, id, frame);
+						break;
 					case NetworkCameraNetworkObject.IDENTITY:
 						availableCallback = true;
 						obj = new NetworkCameraNetworkObject(networker, id, frame);
@@ -70,10 +74,6 @@ namespace BeardedManStudios.Forge.Networking.Generated
 					case WandFollowCameraNetworkObject.IDENTITY:
 						availableCallback = true;
 						obj = new WandFollowCameraNetworkObject(networker, id, frame);
-						break;
-					case LocationOfCopyNetworkObject.IDENTITY:
-						availableCallback = true;
-						obj = new LocationOfCopyNetworkObject(networker, id, frame);
 						break;
 				}
 

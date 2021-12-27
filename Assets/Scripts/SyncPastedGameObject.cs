@@ -8,17 +8,20 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
 {
 
     public MeshFilter meshFilter;
+    public MeshRenderer meshRenderer;
+    public PasteObject thisPasteObject;
 
     protected override void NetworkStart()
     {
         base.NetworkStart();
 
-        string tempV = ConvertVerticesToString(meshFilter.mesh.vertices);
-        string tempT = ConvertTrisToString(meshFilter.mesh.triangles);
-
         if (networkObject.IsOwner) {
-            networkObject.SendRpc(RPC_PASTED_GAME_OBJECT, Receivers.AllBuffered, tempV, tempT);
-        } 
+            networkObject.SendRpc(RPC_PASTED_GAME_OBJECT, Receivers.AllBuffered, ConvertVerticesToString(meshFilter.mesh.vertices), ConvertTrisToString(meshFilter.mesh.triangles), meshRenderer.material.color);
+        }
+        else
+        {
+            thisPasteObject.enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -87,6 +90,7 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
         if (!networkObject.IsOwner) {
             meshFilter.mesh.vertices = ConvertStringToVertices(args.GetAt<string>(0));
             meshFilter.mesh.triangles = ConvertStringToTris(args.GetAt<string>(1));
+            meshRenderer.material.color = args.GetAt<Color>(2);
             meshFilter.mesh.RecalculateNormals();
         }
     }

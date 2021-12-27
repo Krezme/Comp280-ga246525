@@ -25,6 +25,8 @@ public class CopyData : MonoBehaviour
 
     public GameObject pasteObjectCopy;
 
-    public Material copyMaterial;
+    public Material[] copyMaterials;
+
+    public int selectedMaterial;
 
 }
