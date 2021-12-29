@@ -14,8 +14,14 @@ public class WaitUntilRested : ActionNode
     protected override State OnUpdate() {
         if (context.aiStatistics.currentStatistics.energy < context.aiStatistics.defaultStatistics.energy) {
             context.aiStatistics.CampFireResting();
+            context.agent.updateRotation = false;
+            Transform tempTransform = context.transform;
+            Vector3 lookPos = context.restSpotsScript.campFire.transform.position - context.transform.position;
+            lookPos.y = 0;
+            context.transform.rotation = Quaternion.LookRotation(lookPos);
             return State.Running;
         }
+        context.agent.updateRotation = true;
         return State.Success;
     }
 }

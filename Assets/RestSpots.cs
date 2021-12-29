@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RestSpots : MonoBehaviour
 {
+    public GameObject campFire;
     public GameObject[] campfireRestSpots;
     // Start is called before the first frame update
     void Start()

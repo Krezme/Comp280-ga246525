@@ -224,7 +224,7 @@ MonoBehaviour:
   defaultStatistics:
     health: 100
     stamina: 100
-    energy: 100
+    energy: 30
   currentStatistics:
     health: 0
     stamina: 0
@@ -262,7 +262,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b560ba08eeec19148aca82c4ef95ac8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  campFire: {fileID: 449341448}
   campfireRestSpots: []
+--- !u!1 &449341448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c576e1097ef79e64a9f0ab7c3883cf4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1013415896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &461914455
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +556,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c576e1097ef79e64a9f0ab7c3883cf4a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c576e1097ef79e64a9f0ab7c3883cf4a,
         type: 3}
