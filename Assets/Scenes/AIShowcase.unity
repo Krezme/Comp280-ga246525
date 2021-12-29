@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60103f7e58ca27b4587d6b6d02399d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  behaviourTreeRunner: {fileID: 150085452}
   defaultStatistics:
     health: 100
     stamina: 100
@@ -230,7 +231,9 @@ MonoBehaviour:
     energy: 0
   aiTresholds:
     tiredness: 20
-  passiveExhaustionSpeed: 10
+  passiveExhaustionSpeed: 4
+  campFireRestSpeed: 4
+  isResting: 0
 --- !u!54 &150085455
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -459,6 +462,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: 82a2914d8f86c62488456950c8330e38,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: eec83b7084cc5d24dab7df6936489d3b, type: 2}
     - target: {fileID: -4216859302048453862, guid: 82a2914d8f86c62488456950c8330e38,
         type: 3}
       propertyPath: m_RootOrder

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TheKiwiCoder;
 
 [System.Serializable]
 public class AIDefaultStatistics{
@@ -23,13 +24,19 @@ public class AITresholds{
 
 public class AIStatistics : MonoBehaviour
 {
+    
+    public BehaviourTreeRunner behaviourTreeRunner;
+    
     public AIDefaultStatistics defaultStatistics;
 
     public AICurrentStatistics currentStatistics;
 
     public AITresholds aiTresholds;
 
+
     public float passiveExhaustionSpeed;
+    public float campFireRestSpeed;
+    public bool isResting;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +49,10 @@ public class AIStatistics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpendEnergy(Time.deltaTime * passiveExhaustionSpeed);
+        behaviourTreeRunner.context.animator.SetFloat("Speed", behaviourTreeRunner.context.agent.velocity.magnitude);
+        if (!isResting) {
+            SpendEnergy(Time.deltaTime * passiveExhaustionSpeed);
+        }
     }
 
     public void TakeDamage (float health) {
@@ -58,8 +68,15 @@ public class AIStatistics : MonoBehaviour
 
     public void SpendEnergy (float energy) {
         currentStatistics.energy -= energy;
-        if (currentStatistics.energy < 0) {
+        if (currentStatistics.energy <= 0) {
             currentStatistics.energy = 0;
+        }
+    }
+
+    public void CampFireResting() {
+        currentStatistics.energy += Time.deltaTime * campFireRestSpeed;
+        if (currentStatistics.energy >= defaultStatistics.energy) {
+            currentStatistics.energy = defaultStatistics.energy;
         }
     }
 }
