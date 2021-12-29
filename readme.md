@@ -14,3 +14,11 @@ Note:  Do not leave empty folders in your Unity project.  Empty folders do not g
 For full details on this project's settings, please read the Changelog.md
  
 Do you have any suggestions for improvements? Please submit a pull request!
+
+
+Used assets:
+
+Campfire - https://www.artstation.com/marketplace/p/dgmg/campfire-free
+Jammo Character (AI character) - https://assetstore.unity.com/packages/3d/characters/jammo-character-mix-and-jam-158456
+FSM used by TheKiwiCoder - https://www.youtube.com/watch?v=SgrG6uAZDHE&ab_channel=TheKiwiCoder
+Animations - mixamo.com

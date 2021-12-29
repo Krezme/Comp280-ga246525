@@ -14,6 +14,8 @@ TagManager:
   - RedRight
   - OrangeRight
   - GreenRight
+  - PlayerEyes
+  - CampFireRestStop
   layers:
   - Default
   - TransparentFX

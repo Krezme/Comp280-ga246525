@@ -21,6 +21,9 @@ namespace TheKiwiCoder {
         public CharacterController characterController;
         // Add other game specific systems here
 
+        public AIStatistics aiStatistics;
+        public RestSpots restSpotsScript;
+
         public static Context CreateFromGameObject(GameObject gameObject) {
             // Fetch all commonly used components
             Context context = new Context();
@@ -35,6 +38,9 @@ namespace TheKiwiCoder {
             context.characterController = gameObject.GetComponent<CharacterController>();
             
             // Add whatever else you need here...
+            
+            context.aiStatistics = gameObject.GetComponent<AIStatistics>();
+            context.restSpotsScript = gameObject.GetComponent<RestSpots>();
 
             return context;
         }
