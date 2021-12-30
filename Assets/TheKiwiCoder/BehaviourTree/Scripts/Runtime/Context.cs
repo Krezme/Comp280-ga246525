@@ -23,6 +23,8 @@ namespace TheKiwiCoder {
 
         public AIStatistics aiStatistics;
         public RestSpots restSpotsScript;
+        public FieldOfView fieldOfView;
+        public PlayerCommands playerCommands;
 
         public static Context CreateFromGameObject(GameObject gameObject) {
             // Fetch all commonly used components
@@ -41,6 +43,8 @@ namespace TheKiwiCoder {
             
             context.aiStatistics = gameObject.GetComponent<AIStatistics>();
             context.restSpotsScript = gameObject.GetComponent<RestSpots>();
+            context.fieldOfView = gameObject.GetComponent<FieldOfView>();
+            context.playerCommands = gameObject.GetComponent<PlayerCommands>();
 
             return context;
         }

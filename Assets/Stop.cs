@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
 
-public class SetBoolAnimation : ActionNode
+public class Stop : ActionNode
 {
-    public string animationToPlay;
-
-    public bool animationState;
     protected override void OnStart() {
     }
 
@@ -15,7 +12,7 @@ public class SetBoolAnimation : ActionNode
     }
 
     protected override State OnUpdate() {
-        context.animator.SetBool(animationToPlay, animationState);
+        context.agent.destination = context.transform.position;
         return State.Success;
     }
 }
