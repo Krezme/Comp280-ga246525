@@ -22,3 +22,7 @@ Campfire - https://www.artstation.com/marketplace/p/dgmg/campfire-free
 Jammo Character (AI character) - https://assetstore.unity.com/packages/3d/characters/jammo-character-mix-and-jam-158456
 FSM used by TheKiwiCoder - https://www.youtube.com/watch?v=SgrG6uAZDHE&ab_channel=TheKiwiCoder
 Animations - mixamo.com
+Grass materail - https://freepbr.com/materials/grass-1-pbr-material/
+Sandy Dry Soil - https://freepbr.com/materials/sandy-dry-soil-pbr-material/
+Damp Rocky Ground - https://freepbr.com/materials/damp-rocky-ground/
+Realistic Tree Pack Vol.1 - https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-pack-vol-1-50418

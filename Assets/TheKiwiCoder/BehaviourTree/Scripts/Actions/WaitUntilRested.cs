@@ -20,6 +20,7 @@ public class WaitUntilRested : ActionNode
             context.transform.rotation = Quaternion.LookRotation(lookPos);
             return State.Running;
         }
+        context.animator.SetBool("Tired", false);
         context.agent.updateRotation = true;
         return State.Success;
     }

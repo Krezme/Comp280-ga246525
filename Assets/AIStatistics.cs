@@ -37,6 +37,8 @@ public class AIStatistics : MonoBehaviour
     public float passiveExhaustionSpeed;
     public float campFireRestSpeed;
     public bool isResting;
+    public bool isGatheringWood;
+    public bool isLoadingFire;
 
     // Start is called before the first frame update
     void Start()
