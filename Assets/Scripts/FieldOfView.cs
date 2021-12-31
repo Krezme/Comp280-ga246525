@@ -42,7 +42,6 @@ public class FieldOfView : MonoBehaviour
             if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle/2)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position); /// gets the distance between the target and enemy
-                Debug.Log("Run??");
                 visibleTargets.Add(target); /// adds the target to the visible targets list
                 targetvisible = true;
             }

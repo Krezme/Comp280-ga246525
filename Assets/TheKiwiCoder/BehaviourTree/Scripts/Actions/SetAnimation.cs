@@ -5,16 +5,18 @@ using TheKiwiCoder;
 
 public class SetAnimation : ActionNode
 {
-    public string animationToPlay;
-    public float floatValue;
-    public int intValue;
-    public bool stateValue;
-
-    [Header("")]
+    [Header("Type of value to set")]
+    public bool useRandomAnim;
     public bool floatAnimation;
     public bool intAnimation;
     public bool boolAnimation;
     public bool triggerAnimation;
+    
+    [Header("Data depending on value type")]
+    public string animationToPlay;
+    public float floatValue;
+    public int intValue;
+    public bool stateValue;
 
     protected override void OnStart() {
     }
@@ -35,6 +37,9 @@ public class SetAnimation : ActionNode
         }
         else if (triggerAnimation) {
             context.animator.SetTrigger(animationToPlay);
+        }
+        else if (useRandomAnim) {
+            context.animator.SetInteger("RandomAnim", blackboard.randomAnimInt);
         }
         return State.Success;
     }

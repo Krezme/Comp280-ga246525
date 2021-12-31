@@ -9,8 +9,11 @@ public class PlayerCommands : MonoBehaviour
     public AICommands aICommands;
     public bool requredToLookAtPlayer;
     public bool isWaving;
+    public bool isFollowing;
 
     public void WaveEnd() {
-        requredToLookAtPlayer = false;
+        if (!isFollowing) {
+            requredToLookAtPlayer = false;
+        }
     }
 }

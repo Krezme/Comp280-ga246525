@@ -30,6 +30,10 @@ public class MoveToPosition : ActionNode
         if (context.agent.remainingDistance < tolerance) {
             return State.Success;
         }
+        else
+        {
+            context.agent.destination = blackboard.moveToPosition;
+        }
 
         if (context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid) {
             return State.Failure;
