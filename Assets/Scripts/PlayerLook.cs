@@ -13,7 +13,7 @@ public class PlayerLook : PlayerLookBehavior
     private GameObject playerGameObject;
 
     void Start () {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         playerGameObject = transform.parent.gameObject;
     }
 

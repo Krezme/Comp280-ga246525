@@ -2676,7 +2676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 0}
+  tree: {fileID: 11400000, guid: cda0072a55036bd45b41ce3395e50752, type: 2}
 --- !u!114 &5332314539256356225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,9 +2700,11 @@ MonoBehaviour:
     energy: 0
   aiTresholds:
     tiredness: 20
-  passiveExhaustionSpeed: 4
-  campFireRestSpeed: 4
+  passiveExhaustionSpeed: 1
+  campFireRestSpeed: 5
   isResting: 0
+  isGatheringWood: 0
+  isLoadingFire: 0
 --- !u!114 &5332314539256356252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2716,6 +2718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   campFire: {fileID: 0}
+  campFireStrenght: {fileID: 0}
   campfireRestSpots: []
 --- !u!114 &5332314539256356254
 MonoBehaviour:
@@ -2751,7 +2754,9 @@ MonoBehaviour:
   player: {fileID: 0}
   fieldOfView: {fileID: 5332314539256356254}
   aICommands: {fileID: 0}
+  requredToLookAtPlayer: 0
   isWaving: 0
+  isFollowing: 0
 --- !u!1 &4498097787846006226
 GameObject:
   m_ObjectHideFlags: 0
