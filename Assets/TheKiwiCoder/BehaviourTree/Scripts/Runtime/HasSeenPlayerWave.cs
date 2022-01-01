@@ -23,6 +23,9 @@ public class HasSeenPlayerWave : ActionNode
             context.playerCommands.requredToLookAtPlayer = true;
             context.playerCommands.isFollowing = true; // Request to follow player;
             return State.Success;
+        }else if (context.playerCommands.isFollowing && checkForFollowWave) {
+            context.playerCommands.requredToLookAtPlayer = true;
+            return State.Success;
         }
         if (context.playerCommands.aICommands.isStopFollowWaving && context.fieldOfView.targetvisible && checkForStopFollowWave) {
             context.playerCommands.requredToLookAtPlayer = false;

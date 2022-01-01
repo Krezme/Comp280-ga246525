@@ -10,10 +10,4 @@ public class PlayerCommands : MonoBehaviour
     public bool requredToLookAtPlayer;
     public bool isWaving;
     public bool isFollowing;
-
-    public void WaveEnd() {
-        if (!isFollowing) {
-            requredToLookAtPlayer = false;
-        }
-    }
 }

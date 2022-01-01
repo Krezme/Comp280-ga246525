@@ -13,6 +13,7 @@ public class WaitUntilRested : ActionNode
 
     protected override State OnUpdate() {
         if (context.aiStatistics.currentStatistics.energy < context.aiStatistics.defaultStatistics.energy) {
+            context.animator.SetBool("Tired", false);
             context.aiStatistics.CampFireResting();
             context.agent.updateRotation = false;
             Vector3 lookPos = context.restSpotsScript.campFire.transform.position - context.transform.position;

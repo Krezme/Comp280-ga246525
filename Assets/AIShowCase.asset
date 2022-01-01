@@ -22,6 +22,28 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   gatheringState: 0
+--- !u!114 &-8850317355498613797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ce25ac61577764b9c05ee65f90320d, type: 3}
+  m_Name: RequredToLookAtPlayer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: c9cedb7cce760004a923ecca9f0b842b
+  position: {x: -1027, y: 965}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  lookAtPlayerState: 0
 --- !u!114 &-8425993785803530233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,7 +59,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ccec945666e56e743a35038c8dfa51ee
-  position: {x: 539.1065, y: 1434.9285}
+  position: {x: 713.36444, y: 1422.7638}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -59,7 +81,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 016328014d1eab04293a9f258401fb02
-  position: {x: -313.89368, y: 1291.9285}
+  position: {x: -172.8, y: 1164.5}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -80,7 +102,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 69915d44fbdd31e46902fba82afb89ab
-  position: {x: 1489.5731, y: 1277.1202}
+  position: {x: 1627.6558, y: 1267.8229}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -237,7 +259,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 573331da636cc564db641ebe2bb0ac4a
-  position: {x: 2857.0032, y: 1834.0797}
+  position: {x: 2434.8547, y: 1520.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -312,7 +334,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 86d23546183909f4987a4e9212263bbb
-  position: {x: 1176.1064, y: 1439.9285}
+  position: {x: 1350.3643, y: 1427.7638}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -391,7 +413,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0bf2465647db0bd479d6cda19b9b6064
-  position: {x: 1883.5732, y: 1399.1206}
+  position: {x: 2021.656, y: 1389.8229}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -443,7 +465,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7d692b0df3e1bd3439a3e3e0a8dd042f
-  position: {x: 1104.1063, y: 1568.9286}
+  position: {x: 1278.3643, y: 1556.7639}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -464,7 +486,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4f05a2b230109c9409ab642bf345de5c
-  position: {x: 3304.003, y: 1836.0798}
+  position: {x: 2881.855, y: 1522.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -486,7 +508,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ae6ee939c8b957f4895be520c959e19e
-  position: {x: 2383.0034, y: 1836.0798}
+  position: {x: 1960.8549, y: 1522.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -509,7 +531,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 55a219c3f47fa5a4e9fc75b4fc5773fd
-  position: {x: -1223.7753, y: 966.3745}
+  position: {x: -1612, y: 969}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -530,7 +552,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: b02d2e9da3f5a1c4f869e2ca91340899
-  position: {x: 833.1062, y: 1439.9285}
+  position: {x: 1007.36426, y: 1427.7638}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -575,7 +597,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 12402e1b2e99819429f9bb5d68b26693
-  position: {x: 687.10614, y: 1437.9285}
+  position: {x: 861.36426, y: 1425.7638}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -676,6 +698,8 @@ MonoBehaviour:
   - {fileID: -6054875923006060899}
   - {fileID: -2590920617397305602}
   - {fileID: -1996889247875452124}
+  - {fileID: -2211403613713695620}
+  - {fileID: -8850317355498613797}
 --- !u!114 &-4728101170791029936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,7 +715,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: b04d200564c7e7d4db9c2ab00f6c2903
-  position: {x: 2684.0032, y: 1836.0798}
+  position: {x: 2261.8547, y: 1522.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -713,7 +737,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: cd1ee950eef495540b1970f13b2d0dac
-  position: {x: 1336.573, y: 1274.1202}
+  position: {x: 1474.6561, y: 1264.8229}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -739,7 +763,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7034049c021f59d41aadbcd879eaba08
-  position: {x: 1283.1064, y: 1569.9285}
+  position: {x: 1457.3644, y: 1557.7639}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -788,7 +812,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: dc9bfc6a4180dda47a17bc318cb0ebc8
-  position: {x: -1177.7753, y: 721.3745}
+  position: {x: -1456, y: 720}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -877,6 +901,28 @@ MonoBehaviour:
   updateRotation: 0
   acceleration: 40
   tolerance: 4
+--- !u!114 &-3290868415591897256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0e2acf9752c48459196679df288bbf, type: 3}
+  m_Name: IsResting
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f2dc7a90beec1944ea9cf613b08f2036
+  position: {x: 591.355, y: 1166.3875}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  restingState: 0
 --- !u!114 &-3163919086757389843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,7 +983,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4654ef08e63c56949ab83680af179095
-  position: {x: 541.10657, y: 1305.9285}
+  position: {x: 946.4218, y: 1299.3202}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -994,6 +1040,9 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: 7653019261167576668}
+  - {fileID: -8146756929501160416}
+  - {fileID: 8008081748380986511}
+  - {fileID: 5070702521597335536}
   - {fileID: 2051664971611520277}
 --- !u!114 &-2738835137735076675
 MonoBehaviour:
@@ -1010,7 +1059,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0af9beaf23b5e54498dae9116e0cca0d
-  position: {x: 2080.003, y: 1836.0798}
+  position: {x: 1657.8549, y: 1522.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1031,7 +1080,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 23c431457dbda7b4db6f094c91fe4a2e
-  position: {x: -1076.7753, y: 965.3745}
+  position: {x: -1465, y: 968}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1077,7 +1126,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4d00e98feeac64947bc6f3397e58f6bd
-  position: {x: 1643.5732, y: 1278.1204}
+  position: {x: 1781.656, y: 1268.8229}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1107,6 +1156,28 @@ MonoBehaviour:
   children:
   - {fileID: -5140798845856545410}
   - {fileID: -7531450203157434119}
+--- !u!114 &-2211403613713695620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5134d9de14153468b48928d3e7359a, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 98960865bd2eb7a409692f1b784249b9
+  position: {x: -1173, y: 966}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  duration: 2.5
 --- !u!114 &-1996889247875452124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,7 +1193,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: edd0603832895f84c896e751a6191599
-  position: {x: -931.77527, y: 964.3745}
+  position: {x: -1320, y: 967}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1137,6 +1208,28 @@ MonoBehaviour:
   floatValue: 0
   intValue: 0
   stateValue: 0
+--- !u!114 &-1962186382225581745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0e2acf9752c48459196679df288bbf, type: 3}
+  m_Name: IsResting
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8c365bd7acf888b45a79b255bf11e893
+  position: {x: -805, y: 1682}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  restingState: 0
 --- !u!114 &-1957484699612288629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1294,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ea40ae64c9ad52f42b84911ef55a3ac2
-  position: {x: 2765.0034, y: 1578.0798}
+  position: {x: 2342.855, y: 1264.9089}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1225,7 +1318,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c9716a3e92a6bb746b6b7bb32a4235f2
-  position: {x: -665.4063, y: 1676.5718}
+  position: {x: -953, y: 1681}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1246,7 +1339,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f2e1eadc30866eb43bde677af7f616e7
-  position: {x: 472.1062, y: 1178.9285}
+  position: {x: 1037.5499, y: 1167}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1255,6 +1348,28 @@ MonoBehaviour:
   children:
   - {fileID: 7796664964578111757}
   - {fileID: -3033496929239175331}
+--- !u!114 &-353681131881129656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0e2acf9752c48459196679df288bbf, type: 3}
+  m_Name: IsResting
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 369da588ae3f00f46bb102164042978c
+  position: {x: -1305, y: 719}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  restingState: 0
 --- !u!114 &-205359699160201557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1385,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fe44dafc254d43f49a3131acc4bef39f
-  position: {x: -1104.4064, y: 1176.5718}
+  position: {x: -1404.1577, y: 1182}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1294,7 +1409,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 79f82e78b5bd5d54f9c5ea95ba6b1cc2
-  position: {x: 392.1063, y: 1433.9285}
+  position: {x: 566.3644, y: 1421.7638}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1332,6 +1447,8 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: -205359699160201557}
+  - {fileID: 4006403271188758113}
+  - {fileID: 1437184529571364578}
   - {fileID: 3155718946639208708}
   - {fileID: -6492643271549873001}
   - {fileID: 4041718159304048278}
@@ -1451,6 +1568,18 @@ MonoBehaviour:
   - {fileID: 727873371446514992}
   - {fileID: -5910271874742073782}
   - {fileID: -9082813892245219808}
+  - {fileID: -8850317355498613797}
+  - {fileID: -2211403613713695620}
+  - {fileID: 8008081748380986511}
+  - {fileID: -1962186382225581745}
+  - {fileID: 1710469459454014339}
+  - {fileID: 5070702521597335536}
+  - {fileID: -353681131881129656}
+  - {fileID: 8142901743046329784}
+  - {fileID: -3290868415591897256}
+  - {fileID: 3102208854107590512}
+  - {fileID: 4006403271188758113}
+  - {fileID: 1437184529571364578}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1469,7 +1598,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4231d7888c4cb6642a6d0421e9b3312c
-  position: {x: 929.1062, y: 1810.9286}
+  position: {x: 912.4263, y: 1814.7811}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1540,7 +1669,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 08677b258dfe263468537aacec11f173
-  position: {x: 283.10623, y: 1045.9286}
+  position: {x: 880.06195, y: 1031.34}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1548,6 +1677,8 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: 5712326649001777332}
+  - {fileID: -3290868415591897256}
+  - {fileID: 3102208854107590512}
   - {fileID: 1406978388067935217}
   - {fileID: -1060642361766877647}
 --- !u!114 &759359535764422380
@@ -1615,7 +1746,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 9aa6d31a51c338048a88315f30c70209
-  position: {x: 1565.5731, y: 1404.1202}
+  position: {x: 1703.656, y: 1394.8228}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1645,7 +1776,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 8648d6ca1b66ef548b74054167ba592f
-  position: {x: 321.10614, y: 1175.9286}
+  position: {x: 884.955, y: 1162.6775}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1656,6 +1787,66 @@ MonoBehaviour:
   updateRotation: 1
   acceleration: 40
   tolerance: 1
+--- !u!114 &1437184529571364578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2cc9a48db827a47a898f462761f222, type: 3}
+  m_Name: SetAnimation
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 051ac59c7c1add64cbd4286563fcd4de
+  position: {x: -1103.3877, y: 1182.2002}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  useRandomAnim: 0
+  floatAnimation: 0
+  intAnimation: 0
+  boolAnimation: 1
+  triggerAnimation: 0
+  animationToPlay: CampFireRest
+  floatValue: 0
+  intValue: 0
+  stateValue: 0
+--- !u!114 &1710469459454014339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2cc9a48db827a47a898f462761f222, type: 3}
+  m_Name: SetAnimation
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 87f6cf9bd33b1a04085381af0d661928
+  position: {x: -656, y: 1683}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  useRandomAnim: 0
+  floatAnimation: 0
+  intAnimation: 0
+  boolAnimation: 1
+  triggerAnimation: 0
+  animationToPlay: CampFireRest
+  floatValue: 0
+  intValue: 0
+  stateValue: 0
 --- !u!114 &1721006047976449345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,14 +1888,13 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: b28076204b86b6f458149d71258b6a9b
-  position: {x: -22.893854, y: 1167.9285}
+  position: {x: 288.54514, y: 1158.9773}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
   description: 
   drawGizmos: 0
   children:
-  - {fileID: -8146756929501160416}
   - {fileID: 3830872610985151654}
   - {fileID: 2790497715037133584}
 --- !u!114 &2544210498905646176
@@ -1746,7 +1936,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 185e38700c9374647ad0b6a132f84515
-  position: {x: 3153.0032, y: 1836.0798}
+  position: {x: 2730.8547, y: 1522.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1772,7 +1962,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 5a4d9dc2322a00047bed029ee3f7bc55
-  position: {x: -7.893708, y: 1298.9285}
+  position: {x: 191.69753, y: 1300.3225}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1781,6 +1971,36 @@ MonoBehaviour:
   children:
   - {fileID: 6712643002513144724}
   - {fileID: 727873371446514992}
+--- !u!114 &3102208854107590512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2cc9a48db827a47a898f462761f222, type: 3}
+  m_Name: SetAnimation
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 19dbe9b59bf8ed64c8b1883bbd0a5f6b
+  position: {x: 739.195, y: 1165.97}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  useRandomAnim: 0
+  floatAnimation: 0
+  intAnimation: 0
+  boolAnimation: 1
+  triggerAnimation: 0
+  animationToPlay: CampFireRest
+  floatValue: 0
+  intValue: 0
+  stateValue: 0
 --- !u!114 &3124055131180265900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,7 +2016,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d5d06cf836649004b85edc580eefaaf0
-  position: {x: 1017.1063, y: 1696.9285}
+  position: {x: 1191.3644, y: 1684.7639}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1877,7 +2097,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c1e270925e6301c41bf5e0d8171e0488
-  position: {x: 1723.5731, y: 1401.1202}
+  position: {x: 1861.6559, y: 1391.8229}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1899,7 +2119,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 85689270183cdb6428803acfde0e8ed7
-  position: {x: 1474.5732, y: 1146.1204}
+  position: {x: 1612.656, y: 1136.8228}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1935,6 +2155,8 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: -1603016146872577812}
+  - {fileID: -1962186382225581745}
+  - {fileID: 1710469459454014339}
   - {fileID: -2236687145148957308}
 --- !u!114 &3696876951929918634
 MonoBehaviour:
@@ -1951,7 +2173,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0d64dda2d0e2c78478c19d5028394f6c
-  position: {x: 1794.5731, y: 1273.1202}
+  position: {x: 1932.6559, y: 1263.8226}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -1975,7 +2197,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 8f182667584832146ba15d76ef7c5b42
-  position: {x: -161.89378, y: 1292.9285}
+  position: {x: 25.39561, y: 1292.5626}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2001,7 +2223,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c86af2b9e893e6e44a9770bf701677d1
-  position: {x: 2538.0034, y: 1836.0798}
+  position: {x: 2115.8547, y: 1522.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2012,6 +2234,28 @@ MonoBehaviour:
   updateRotation: 1
   acceleration: 40
   tolerance: 1
+--- !u!114 &4006403271188758113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0e2acf9752c48459196679df288bbf, type: 3}
+  m_Name: IsResting
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 9470eaffb4442174580ea97454494cac
+  position: {x: -1252.8026, y: 1182.0326}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  restingState: 0
 --- !u!114 &4041718159304048278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,7 +2293,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f09430195659e994695be160d3f14b9e
-  position: {x: 1410.5731, y: 1404.1202}
+  position: {x: 1548.6559, y: 1394.8228}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2071,7 +2315,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ac0107cc0ff21094f8cb42b8dc0bbd3b
-  position: {x: 81.10616, y: 885.9285}
+  position: {x: 373.6023, y: 867.3799}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2102,6 +2346,36 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   duration: 1
+--- !u!114 &5070702521597335536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2cc9a48db827a47a898f462761f222, type: 3}
+  m_Name: SetAnimation
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: dd2bc8c9a9f344c4ea10169cddd7c545
+  position: {x: 124.24999, y: 1165.0002}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  useRandomAnim: 0
+  floatAnimation: 0
+  intAnimation: 0
+  boolAnimation: 1
+  triggerAnimation: 0
+  animationToPlay: CampFireRest
+  floatValue: 0
+  intValue: 0
+  stateValue: 0
 --- !u!114 &5122001969223414046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2117,7 +2391,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 53ed66594f35007499fa142d593f2fca
-  position: {x: 2653.0032, y: 1709.0798}
+  position: {x: 2230.8547, y: 1395.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2144,7 +2418,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2dfda451129f23e40935eb9cf5cc07de
-  position: {x: 2853.003, y: 1708.0798}
+  position: {x: 2430.8547, y: 1394.9089}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2170,7 +2444,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 3ab24b4bf0be2514fb7007165371107f
-  position: {x: 1140.5731, y: 1276.1202}
+  position: {x: 1278.6559, y: 1266.8229}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2191,7 +2465,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: feaad4e7d9efee44a962182709f93d46
-  position: {x: 1164.1063, y: 1696.9285}
+  position: {x: 1338.3644, y: 1684.7639}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2234,7 +2508,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 23349f0425bfb8447b3af64fd8e3e437
-  position: {x: 171.10617, y: 1175.9286}
+  position: {x: 444.005, y: 1166.645}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2279,7 +2553,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d8ba517305ffba64baad3fd989a5da67
-  position: {x: 993.57306, y: 1277.1202}
+  position: {x: 1131.656, y: 1267.8229}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2345,7 +2619,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c45e8fe5e643c11438da9243e400f0c6
-  position: {x: 1025.1062, y: 1438.9286}
+  position: {x: 1199.3643, y: 1426.7638}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2371,7 +2645,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6f3e0687b20cc374d99c4de5e3bc1e9c
-  position: {x: 3003.0032, y: 1836.0798}
+  position: {x: 2580.8547, y: 1522.909}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2394,7 +2668,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7b62e26bdd1ab0e48ac9d22b1f7b4c35
-  position: {x: 2232.0032, y: 1835.0797}
+  position: {x: 1809.8549, y: 1521.9089}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2446,7 +2720,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 249130894eeeaf5488d5a1278d815952
-  position: {x: 1312.1062, y: 1696.9285}
+  position: {x: 1486.3644, y: 1684.7639}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2467,7 +2741,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e76d01076d1d1ff4e9b82c2b46424806
-  position: {x: -245.89383, y: 1168.9286}
+  position: {x: -324, y: 1166}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
@@ -2488,12 +2762,64 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e3ca31fa5f78f9e47be89897f3ed762c
-  position: {x: 392.1063, y: 1306.9286}
+  position: {x: 797.4219, y: 1300.3201}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     randomAnimInt: 0
   description: 
   drawGizmos: 0
+--- !u!114 &8008081748380986511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0e2acf9752c48459196679df288bbf, type: 3}
+  m_Name: IsResting
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: aa2f2e47260ebff4694974b776bd5fa4
+  position: {x: -21.849993, y: 1165.0002}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  restingState: 0
+--- !u!114 &8142901743046329784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2cc9a48db827a47a898f462761f222, type: 3}
+  m_Name: SetAnimation
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: fdf35a8f91014004bae05791e065571c
+  position: {x: -1156, y: 719}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    randomAnimInt: 0
+  description: 
+  drawGizmos: 0
+  useRandomAnim: 0
+  floatAnimation: 0
+  intAnimation: 0
+  boolAnimation: 1
+  triggerAnimation: 0
+  animationToPlay: CampFireRest
+  floatValue: 0
+  intValue: 0
+  stateValue: 0
 --- !u!114 &8660132905146092540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2538,4 +2864,6 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: -4065012405661236840}
+  - {fileID: -353681131881129656}
+  - {fileID: 8142901743046329784}
   - {fileID: -3101362557392821159}
