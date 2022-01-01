@@ -981,7 +981,7 @@ MonoBehaviour:
   maxStrenght: 100
   currentStrenght: 0
   weakensSpeed: 1
-  treshold: 50
+  treshold: 10
 --- !u!1 &461914455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6729,7 +6729,7 @@ PrefabInstance:
     - target: {fileID: 5332314539256356225, guid: fe8733b4555cd64418710e4386bfbbd3,
         type: 3}
       propertyPath: campFireRestSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5332314539256356225, guid: fe8733b4555cd64418710e4386bfbbd3,
         type: 3}
