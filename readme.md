@@ -26,3 +26,4 @@ Grass materail - https://freepbr.com/materials/grass-1-pbr-material/
 Sandy Dry Soil - https://freepbr.com/materials/sandy-dry-soil-pbr-material/
 Damp Rocky Ground - https://freepbr.com/materials/damp-rocky-ground/
 Realistic Tree Pack Vol.1 - https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-pack-vol-1-50418
+Japanese Dosanko City - https://assetstore.unity.com/packages/3d/environments/urban/japanese-dosanko-city-36810
