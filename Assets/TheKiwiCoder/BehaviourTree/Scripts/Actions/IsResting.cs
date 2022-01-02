@@ -13,6 +13,7 @@ public class IsResting : ActionNode
     }
 
     protected override State OnUpdate() {
+        //Changing the state depending on the in editor given sate
         context.aiStatistics.isResting = restingState;
         return State.Success;
     }

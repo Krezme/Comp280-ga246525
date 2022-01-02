@@ -11,6 +11,10 @@ public class WaitUntilRested : ActionNode
     protected override void OnStop() {
     }
 
+    /// <summary>
+    /// Waiting next to the camp fire to rest and regain energy
+    /// </summary>
+    /// <returns></returns>
     protected override State OnUpdate() {
         if (context.aiStatistics.currentStatistics.energy < context.aiStatistics.defaultStatistics.energy) {
             context.animator.SetBool("Tired", false);

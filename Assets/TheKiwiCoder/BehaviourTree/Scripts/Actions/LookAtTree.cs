@@ -12,6 +12,7 @@ public class LookAtTree : ActionNode
     }
 
     protected override State OnUpdate() {
+        //Looking at the tree when gathering wood
         if (context.aiStatistics.isGatheringWood) {
             context.agent.updateRotation = false;
             Vector3 lookPos = context.restSpotsScript.campFireStrenght.tree.transform.position - context.transform.position;

@@ -27,6 +27,9 @@ public class CopyableObjectsFollowingPlayer : CopyableObjectsFollowingPlayerBeha
         
     }
 # if !UNITY_EDITOR
+    /// <summary>
+    /// Setting the correct gameobject to follow
+    /// </summary>
     public void PlayerGameObject() {
         if (networkObject.IsServer) {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -37,11 +40,12 @@ public class CopyableObjectsFollowingPlayer : CopyableObjectsFollowingPlayerBeha
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// moving the object to follow the player and clamping the position to the givend float variables above
+    /// </summary>
     void Update()
     {
         float currentPlayerPosZ = player.transform.position.z;
-        /* Debug.LogError(this.gameObject.name + " " + currentPlayerPosZ); */
         float newPositionForCopyableObjectsZ = Mathf.Clamp(currentPlayerPosZ, minPositon, maxPosition);
 
         transform.position = new Vector3(transform.position.x, transform.position.y, newPositionForCopyableObjectsZ);

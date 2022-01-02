@@ -12,6 +12,7 @@ public class LookAtPlayer : ActionNode
     }
 
     protected override State OnUpdate() {
+        //Looking at the player when the player has given it a command
         if (context.playerCommands.requredToLookAtPlayer) { // Waiting for a request to look at the player from the previous node
             context.agent.updateRotation = false; 
             Vector3 lookPos = context.playerCommands.player.transform.position - context.transform.position;

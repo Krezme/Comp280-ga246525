@@ -13,7 +13,10 @@ public class HasSeenPlayerWave : ActionNode
 
     protected override void OnStop() {
     }
-
+    /// <summary>
+    /// Checking for whichever wave is specified in the editor (using the 3 bools above)
+    /// </summary>
+    /// <returns></returns>
     protected override State OnUpdate() {
         if (context.playerCommands.aICommands.isWaving && context.fieldOfView.targetvisible && checkForWave) {  
             context.playerCommands.requredToLookAtPlayer = true; // Requesting to look at the player

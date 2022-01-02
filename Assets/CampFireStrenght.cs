@@ -16,12 +16,17 @@ public class CampFireStrenght : MonoBehaviour
         FireStrenghtReset();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Constantly weakens the camp fire
+    /// </summary>
     void Update()
     {
         FireStrenghtWeakens();
     }
 
+    /// <summary>
+    /// weakens the campt fire strenght over time 
+    /// </summary>
     void FireStrenghtWeakens() {
         currentStrenght -= Time.deltaTime * weakensSpeed;
         if (currentStrenght < 0) {
@@ -29,6 +34,9 @@ public class CampFireStrenght : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// restarting the strenght of the campfire
+    /// </summary>
     public void FireStrenghtReset() {
         currentStrenght = maxStrenght;
     }

@@ -11,6 +11,10 @@ public class SpendEnergyPassive : ActionNode
     protected override void OnStop() {
     }
 
+    /// <summary>
+    /// Constantly spending energy
+    /// </summary>
+    /// <returns></returns>
     protected override State OnUpdate() {
         context.aiStatistics.SpendEnergy(Time.deltaTime * context.aiStatistics.passiveExhaustionSpeed);
         if (context.aiStatistics.currentStatistics.energy <= 0) {

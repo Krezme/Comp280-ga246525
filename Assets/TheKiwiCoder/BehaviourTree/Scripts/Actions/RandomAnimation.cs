@@ -13,6 +13,10 @@ public class RandomAnimation : ActionNode
     protected override void OnStop() {
     }
 
+    /// <summary>
+    /// Choosing a random animation that can be played in some cases
+    /// </summary>
+    /// <returns></returns>
     protected override State OnUpdate() {
         blackboard.randomAnimInt = Random.Range(randomMin, randomMax +1);
         return State.Success;

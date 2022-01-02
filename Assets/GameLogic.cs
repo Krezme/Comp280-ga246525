@@ -7,7 +7,9 @@ public class GameLogic : MonoBehaviour
 {
     public CopyableObjectsFollowingPlayer[] ObjectsToCoppyScripts;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Instantiating the players and the pasted objects
+    /// </summary>
     void Start()
     {
 #if !UNITY_EDITOR

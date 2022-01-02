@@ -14,6 +14,10 @@ public class RandomPosition : ActionNode
     protected override void OnStop() {
     }
 
+    /// <summary>
+    /// Generation a random posiotion from the 0 0 0 courdinate
+    /// </summary>
+    /// <returns></returns>
     protected override State OnUpdate() {
         blackboard.moveToPosition.x = Random.Range(min.x, max.x);
         blackboard.moveToPosition.z = Random.Range(min.y, max.y);

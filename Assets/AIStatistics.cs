@@ -6,14 +6,14 @@ using TheKiwiCoder;
 [System.Serializable]
 public class AIDefaultStatistics{
     public float health = 100;
-    public float stamina = 100;
+    public float stamina = 100; //Not used
     public float energy = 100;
 }
 
 [System.Serializable]
 public class AICurrentStatistics{
     public float health;
-    public float stamina;
+    public float stamina; //Not used
     public float energy;
 }
 
@@ -25,20 +25,20 @@ public class AITresholds{
 public class AIStatistics : MonoBehaviour
 {
     
-    public BehaviourTreeRunner behaviourTreeRunner;
+    public BehaviourTreeRunner behaviourTreeRunner; // The BehaviourTreeRunner script attached to this AI character
     
-    public AIDefaultStatistics defaultStatistics;
+    public AIDefaultStatistics defaultStatistics; // a reference to the AIDefaultStatistics 
 
-    public AICurrentStatistics currentStatistics;
+    public AICurrentStatistics currentStatistics; // a reference to the AICurrentStatistics 
 
-    public AITresholds aiTresholds;
+    public AITresholds aiTresholds; // a reference to the AITresholds 
 
 
-    public float passiveExhaustionSpeed;
-    public float campFireRestSpeed;
-    public bool isResting;
-    public bool isGatheringWood;
-    public bool isLoadingFire;
+    public float passiveExhaustionSpeed; // speed of how fast the AI tiers out
+    public float campFireRestSpeed; // How fast the AI regains energy when resting
+    public bool isResting; // if the AI is resting currently
+    public bool isGatheringWood; // if the AI needs to gather wood or is gathering it currently
+    public bool isLoadingFire; // can load the fire 
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +48,9 @@ public class AIStatistics : MonoBehaviour
         currentStatistics.energy = defaultStatistics.energy;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Constantly spending energy
+    /// </summary>
     void Update()
     {
         behaviourTreeRunner.context.animator.SetFloat("Speed", behaviourTreeRunner.context.agent.velocity.magnitude);
@@ -57,6 +59,10 @@ public class AIStatistics : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// NOT USED
+    /// </summary>
+    /// <param name="health"></param>
     public void TakeDamage (float health) {
         currentStatistics.health -= health;
         if (currentStatistics.health < 0) {
@@ -64,10 +70,18 @@ public class AIStatistics : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// NOT USED
+    /// </summary>
+    /// <param name="stamina"></param>
     public void SpendStamina (float stamina) {
         currentStatistics.stamina -= stamina;
     }
 
+    /// <summary>
+    /// Spending energy and capping it to min 0
+    /// </summary>
+    /// <param name="energy"></param>
     public void SpendEnergy (float energy) {
         currentStatistics.energy -= energy;
         if (currentStatistics.energy <= 0) {
@@ -75,6 +89,9 @@ public class AIStatistics : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Filling up the enery when called (currently only called when resting at a camp fire)
+    /// </summary>
     public void CampFireResting() {
         currentStatistics.energy += Time.deltaTime * campFireRestSpeed;
         if (currentStatistics.energy >= defaultStatistics.energy) {

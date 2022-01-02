@@ -9,6 +9,9 @@ public class WaveArmEvents : MonoBehaviour
     public AICommands aICommands;
     public Animator waveArmAnimator;
 
+    /// <summary>
+    /// Stopping the arm from waving 
+    /// </summary>
     public void StopWaving () {
         waveArmAnimator.SetBool("isWaving", false);
         waveArm.gameObject.SetActive(false);

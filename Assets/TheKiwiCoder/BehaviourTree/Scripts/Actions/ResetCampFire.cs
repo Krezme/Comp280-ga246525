@@ -11,6 +11,10 @@ public class ResetCampFire : ActionNode
     protected override void OnStop() {
     }
 
+    /// <summary>
+    /// Setting the campfire back to dofault strenght
+    /// </summary>
+    /// <returns></returns>    
     protected override State OnUpdate() {
         context.restSpotsScript.campFireStrenght.FireStrenghtReset();
         context.aiStatistics.isLoadingFire = false;

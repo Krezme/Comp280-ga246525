@@ -13,6 +13,7 @@ public class IsGathering : ActionNode
     }
 
     protected override State OnUpdate() {
+        //Changing the state depending on the in editor given sate
         context.aiStatistics.isGatheringWood = gatheringState;
         return State.Success;
     }

@@ -9,6 +9,9 @@ public class StopFollowArmEvents : MonoBehaviour
     public AICommands aICommands;
     public Animator stopFollowArmAnimator;
 
+    /// <summary>
+    /// Stopping the arm from waving
+    /// </summary>
     public void StopStopFollowWaving () {
         stopFollowArmAnimator.SetBool("isStopFollowWaving", false);
         stopFollowArm.gameObject.SetActive(false);

@@ -14,6 +14,7 @@ namespace TheKiwiCoder {
         protected override void OnStop() {
         }
 
+        //Waiting the duration specified in the editor (by default is 1 second)
         protected override State OnUpdate() {
             if (Time.time - startTime > duration) {
                 return State.Success;

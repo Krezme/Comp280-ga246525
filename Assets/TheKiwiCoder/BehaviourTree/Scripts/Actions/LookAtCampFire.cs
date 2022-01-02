@@ -12,6 +12,7 @@ public class LookAtCampFire : ActionNode
     }
 
     protected override State OnUpdate() {
+        //Constantly looking at the campfire
         if (context.aiStatistics.isLoadingFire) {
             context.agent.updateRotation = false;
             Vector3 lookPos = context.restSpotsScript.campFire.transform.position - context.transform.position;
