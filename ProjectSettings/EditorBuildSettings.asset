@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CampingWithMyBuddyInfo.unity
     guid: 483cd0c09a162304a890ee82a64d0e4c
   - enabled: 1
+    path: Assets/Scenes/AIShowcase.unity
+    guid: 2774976946758f04691ccbdf8fe05ad5
+  - enabled: 1
     path: Assets/Scenes/TheHuedTrailsInfo.unity
     guid: 2d0c4c05155e5cb48ad8e02d1880e0d8
   - enabled: 1
