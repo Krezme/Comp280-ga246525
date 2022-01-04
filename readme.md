@@ -8,7 +8,7 @@ To play the Networking Game (The Hued Trails) Please Run the build
 
 To play the AI Showcase please open it in The editor.
 
-The build for the game is in the documentation folder called The Hued Trails.zip
+The build for the networking game is in the documentation folder called The Hued Trails.zip
 
 Used assets:
 
