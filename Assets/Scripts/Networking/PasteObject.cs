@@ -6,7 +6,9 @@ using UnityEngine;
 public class PasteObject : MonoBehaviour
 {
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// pastes the data from the copied game object
+    /// </summary>
     void Start()
     {
         MeshFilter meshFilter;

@@ -19,7 +19,9 @@ public class RandomPanelSpawns : RandomPanelSpawnSyncBehavior
     void Start()
     {
 
-
+        /// <summary>
+        /// Randomises the tiles and spawns them
+        /// </summary>
 # if UNITY_EDITOR
         spawnPoints = new Transform[this.transform.childCount];
         tilesInOrder = new int[spawnPoints.Length];
@@ -33,7 +35,9 @@ public class RandomPanelSpawns : RandomPanelSpawnSyncBehavior
         }
 # endif
     }
-
+    /// <summary>
+    /// lloks at the generated tiles and sends them to the other clients
+    /// </summary>
 # if !UNITY_EDITOR
     protected override void NetworkStart()
     {
@@ -65,13 +69,10 @@ public class RandomPanelSpawns : RandomPanelSpawnSyncBehavior
     }
 #endif
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
+    /// <summary>
+    /// Instantiates the correct pannels that have been sent to this client 
+    /// </summary>
+    /// <param name="args"></param>
     public override void PanelsOrderList(RpcArgs args)
     {
 # if !UNITY_EDITOR

@@ -14,7 +14,9 @@ public class WandFollowCamera : WandFollowCameraBehavior
     {
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Follows the postion of the camera if this the owner player
+    /// </summary>
     void Update()
     {
         if (networkObject == null) {

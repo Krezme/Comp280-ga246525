@@ -18,6 +18,8 @@ public class CopyData : MonoBehaviour
 
     #endregion
     
+    // All of the copied data is stored here
+
     [HideInInspector] public bool itemCopied = false;
     [HideInInspector] public Vector3[] copiedGameObjectVertices;
     [HideInInspector] public int[] copiedGameObjectTris;

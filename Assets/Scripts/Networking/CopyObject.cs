@@ -20,7 +20,9 @@ public class CopyObject : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Copies the vertices and tris of the object
+    /// </summary>
     void Update()
     {
         maxDistance = useCappedDistance ? maxDistance : Mathf.Infinity;

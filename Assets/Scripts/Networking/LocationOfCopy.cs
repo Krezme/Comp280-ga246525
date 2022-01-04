@@ -33,7 +33,9 @@ public class LocationOfCopy : LocationOfCopyBehavior
         raybitch.transform.SetParent(null);
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Controls the position of the pointer object
+    /// </summary>
     void Update()
     {
         /*if (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied) {
@@ -58,6 +60,11 @@ public class LocationOfCopy : LocationOfCopyBehavior
         }
     }
 
+    /// <summary>
+    /// Calculates if the pointer gO can be spawned on the pointed object and instantiates the copied game object
+    /// </summary>
+    /// <param name="origin"></param>
+    /// <param name="hit"></param>
     void InstantiateLocationOfCopy (Ray origin, RaycastHit hit) {
         if  (Input.GetButtonDown("Fire1") && CopyData.instance.itemCopied && (hit.point != null && hit.transform)) { /// (hit.point != null) for "Drawing"
             //Instantiate(CopyData.instance.pasteObjectCopy, hit.point, Quaternion.Euler(0,0,0));

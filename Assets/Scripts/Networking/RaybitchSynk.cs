@@ -22,7 +22,7 @@ public class RaybitchSynk : RaybitchSynkBehavior
 #endif
     }
 
-    // Update is called once per frame
+    // Follows the position of the pointer game object and syncs the position with the other players.
     void Update()
     {
 # if !UNITY_EDITOR

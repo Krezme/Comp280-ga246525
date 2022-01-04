@@ -24,6 +24,9 @@ public class PlayerMovement : PlayerMovementBehavior
 
     Vector3 velocity;
 
+    /// <summary>
+    /// Controlls the player movement and syncs it with the network
+    /// </summary>
     void Update () {
 
 #if !UNITY_EDITOR

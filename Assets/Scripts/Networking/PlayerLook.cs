@@ -28,6 +28,10 @@ public class PlayerLook : PlayerLookBehavior
     }
 #endif
 
+    /// <summary>
+    /// Controlls the camera rotation depending on the mouse movement and syncs it
+    /// the other players
+    /// </summary>
     void Update () {
 #if !UNITY_EDITOR
         if (networkObject == null) {

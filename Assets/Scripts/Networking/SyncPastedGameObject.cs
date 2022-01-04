@@ -15,7 +15,7 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
     {
         base.NetworkStart();
 
-        if (networkObject.IsOwner) {
+        if (networkObject.IsOwner) { // sents the RPC packet to the other players
             networkObject.SendRpc(RPC_PASTED_GAME_OBJECT, Receivers.AllBuffered, ConvertVerticesToString(meshFilter.mesh.vertices), ConvertTrisToString(meshFilter.mesh.triangles), meshRenderer.material.color);
         }
         else
@@ -24,7 +24,7 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
         }
     }
 
-    // Update is called once per frame
+    // Syncs the postion 
     void Update()
     {
 # if !UNITY_EDITOR
@@ -45,6 +45,11 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
 # endif
     }
 
+    /// <summary>
+    /// Formula to convert vertices to a strings so it is sendable through the network
+    /// </summary>
+    /// <param name="vertices">the array that needs converstion to string</param>
+    /// <returns></returns>
     private string ConvertVerticesToString(Vector3[] vertices) {
         string verticesInStringFormat = "";
         for (int j = 0; j < vertices.Length; j++) {
@@ -71,6 +76,11 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
         return verticesInStringFormat;
     }
 
+    /// <summary>
+    /// Formula to convert tris array to sting so it is sendable to the other clients
+    /// </summary>
+    /// <param name="tris"></param>
+    /// <returns></returns>
     private string ConvertTrisToString (int[] tris) {
         string trisInStringFormat = "";
         for (int i = 0; i < tris.Length; i++) {
@@ -85,6 +95,10 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
         return trisInStringFormat;
     }
 
+    /// <summary>
+    /// Receiving the converted vertices arrays and tris arrays
+    /// </summary>
+    /// <param name="args"></param>
     public override void PastedGameObject(RpcArgs args)
     {
         if (!networkObject.IsOwner) {
@@ -95,6 +109,11 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
         }
     }
 
+    /// <summary>
+    /// Converting back the vertices string into an array
+    /// </summary>
+    /// <param name="verticesInStringFormat">String that needs converion</param>
+    /// <returns></returns>
     private Vector3[] ConvertStringToVertices (string verticesInStringFormat) {
         string[] vetricesInStringArrayFormat = verticesInStringFormat.Split(char.Parse("#"));
         Vector3[] vertices = new Vector3[vetricesInStringArrayFormat.Length];
@@ -106,6 +125,11 @@ public class SyncPastedGameObject : SyncPastedGameObjectBehavior
         return vertices;
     }
 
+    /// <summary>
+    /// Converting back the tris string into an array
+    /// </summary>
+    /// <param name="trisInStringFormat">String that needs converion</param>
+    /// <returns></returns>
     private int[] ConvertStringToTris (string trisInStringFormat) {
         string[] tempStringArr = trisInStringFormat.Split(char.Parse(","));
         int[] tris = new int[tempStringArr.Length];
